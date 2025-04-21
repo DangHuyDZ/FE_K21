@@ -24,7 +24,7 @@
 			<div class="user-box dropdown">
 				<a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#"
 					role="button" data-bs-toggle="dropdown" aria-expanded="false">
-					<img :src="avatar" class="user-img" alt="user avatar">
+					<img :src="avatar ? avatar : 'https://cdn.iconscout.com/icon/free/png-256/free-avatar-icon-download-in-svg-png-gif-file-formats--user-boy-avatars-flat-icons-pack-people-456322.png'" class="user-img" alt="user avatar">
 					<div class="user-info ps-3">
 						<p class="user-name mb-0">{{ ho_ten }}</p>
 						<p class="designattion mb-0">Khách Hàng</p>

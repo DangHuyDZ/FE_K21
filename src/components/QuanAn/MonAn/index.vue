@@ -14,7 +14,6 @@
                         <tr class="bg-primary text-white">
                             <th class="text-center align-middle">#</th>
                             <th class="text-center align-middle">Tên Món Ăn</th>
-                            <th class="text-center align-middle">Slug Món Ăn</th>
                             <th class="text-center align-middle">Giá Bán</th>
                             <th class="text-center align-middle">Giá Khuyến Mãi</th>
                             <th class="text-center align-middle">Mô Tả</th>
@@ -26,12 +25,11 @@
                     </thead>
                     <tbody>
                         <tr v-for="(mon, index) in listMonAn" :key="index">
-                            <td class="text-center align-middle">{{ index + 1 }}</td>
+                            <th class="text-center align-middle">{{ index + 1 }}</th>
                             <td class="align-middle">{{ mon.ten_mon_an }}</td>
-                            <td class="align-middle">{{ mon.slug_mon_an }}</td>
                             <td class="text-end align-middle">{{ formatVND(mon.gia_ban) }}</td>
                             <td class="text-end align-middle">{{ formatVND(mon.gia_khuyen_mai) }}</td>
-                            <td class="align-middle">{{ mon.mo_ta }}</td>
+                            <td class="align-middle">{{ truncateString(mon.mo_ta) }}</td>
                             <td class="text-center align-middle">
                                 <img v-bind:src="mon.hinh_anh" alt="" style="width: 50px; height: 50px;">
                             </td>
@@ -66,11 +64,11 @@
                         <div class="col-lg-6">
                             <div class="mb-2">
                                 <label>Tên Món Ăn</label>
-                                <input v-model="addMon.ten_mon_an" type="text" class="form-control mt-2">
+                                <input v-model="addMon.ten_mon_an" type="text" class="form-control mt-2" v-on:keyup="slugMonAn(1)">
                             </div>
                             <div class="mb-2">
                                 <label>Slug Món Ăn</label>
-                                <input v-model="addMon.slug_mon_an" type="text" class="form-control mt-2">
+                                <input v-model="addMon.slug_mon_an" type="text" class="form-control mt-2" disabled>
                             </div>
                             <div class="mb-2">
                                 <label>Giá Bán</label>
@@ -84,18 +82,6 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="mb-2">
-                                <label>Mô Tả</label>
-                                <input v-model="addMon.mo_ta" type="text" class="form-control mt-2">
-                            </div>
-                            <div class="mb-2">
-                                <label>Tên Quán</label>
-                                <input v-model="addMon.id_quan_an" type="text" class="form-control mt-2">
-                                <!-- <select class="form-control">
-                                    <option value="0">Quan ABC</option>
-                                    <option value="1">Quan BCD</option>
-                                </select> -->
-                            </div>
-                            <div class="mb-2">
                                 <label>Hình Ảnh</label>
                                 <input v-model="addMon.hinh_anh" type="text" class="form-control mt-2">
                             </div>
@@ -106,10 +92,19 @@
                                     <option value="0">Hết hàng</option>
                                 </select>
                             </div>
+                            <div class="mb-2">
+                                <label>Danh Mục</label>
+                                <select class="form-control mt-2" v-model="addMon.id_danh_muc">
+                                    <template v-for="(value, index) in listDanhMuc" :key="index">
+                                        <option  v-bind:value="value.id">{{ value.ten_danh_muc }}</option>
+                                    </template>
+                                </select>
+                            </div>
                         </div>
+                       
                         <div class="mb-2">
-                            <label>Danh Mục</label>
-                            <input v-model="addMon.id_danh_muc" type="text" class="form-control mt-2">
+                            <label>Mô Tả</label>
+                            <textarea v-model="addMon.mo_ta" type="text" class="form-control mt-2" rows="8"></textarea>
                         </div>
                     </div>
                 </div>
@@ -133,11 +128,11 @@
                         <div class="col-lg-6">
                             <div class="mb-2">
                                 <label>Tên Món Ăn</label>
-                                <input v-model="updateMon.ten_mon_an" type="text" class="form-control mt-2">
+                                <input v-model="updateMon.ten_mon_an" type="text" class="form-control mt-2" v-on:keyup="slugMonAn(2)">
                             </div>
                             <div class="mb-2">
                                 <label>Slug Món Ăn</label>
-                                <input v-model="updateMon.slug_mon_an" type="text" class="form-control mt-2">
+                                <input v-model="updateMon.slug_mon_an" type="text" class="form-control mt-2" disabled>
                             </div>
                             <div class="mb-2">
                                 <label>Giá Bán</label>
@@ -149,14 +144,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="mb-2">
-                                <label>Mô Tả</label>
-                                <input v-model="updateMon.mo_ta" type="text" class="form-control mt-2">
-                            </div>
-                            <div class="mb-2">
-                                <label>Tên Quán</label>
-                                <input v-model="updateMon.id_quan_an" type="text" class="form-control mt-2">
-                            </div>
+                           
                             <div class="mb-2">
                                 <label>Hình Ảnh</label>
                                 <input v-model="updateMon.hinh_anh" type="text" class="form-control mt-2">
@@ -168,10 +156,19 @@
                                     <option value="0">Hết hàng</option>
                                 </select>
                             </div>
+                            <div class="mb-2">
+                                <label>Danh Mục</label>
+                                <select class="form-control mt-2" v-model="updateMon.id_danh_muc">
+                                    <template v-for="(value, index) in listDanhMuc" :key="index">
+                                        <option  v-bind:value="value.id">{{ value.ten_danh_muc }}</option>
+                                    </template>
+                                </select>
+                            </div>
                         </div>
+                        
                         <div class="mb-2">
-                            <label>Danh Mục</label>
-                            <input v-model="updateMon.id_danh_muc" type="text" class="form-control mt-2">
+                            <label>Mô Tả</label>
+                            <textarea v-model="updateMon.mo_ta" type="text" class="form-control mt-2" rows="8"></textarea>
                         </div>
                     </div>
                 </div>
@@ -209,19 +206,60 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            listMonAn: [],
-            addMon: {},
-            updateMon: {},
-            deleteMon: {},
+            listMonAn   : [],
+            addMon      : {},
+            updateMon   : {},
+            deleteMon   : {},
+            listDanhMuc : [],
         }
     },
     mounted() {
         this.getMonAn();
+        this.getDataDanhMuc();
     },
     methods: {
+        getDataDanhMuc() {
+            axios.get('http://127.0.0.1:8000/api/quan-an/danh-muc/data', {
+                    headers: {
+                        Authorization: "Bearer " + localStorage.getItem("quan_an_login"),
+                    },
+                })
+                .then(res => {
+                    this.listDanhMuc = res.data.data;
+                })
+        },
+
+        slugMonAn(type) {
+            if(type == 1) {
+                this.addMon.slug_mon_an = this.convertToSlug(this.addMon.ten_mon_an);
+                console.log(this.addMon.slug_mon_an);
+            } else {
+                this.updateMon.slug_mon_an = this.convertToSlug(this.updateMon.ten_mon_an);
+            }
+        },
+
+        convertToSlug(str) {
+            return str
+                .toLowerCase()
+                .normalize('NFD')                   // Chuyển tiếng Việt có dấu thành không dấu
+                .replace(/[\u0300-\u036f]/g, '')     // Xóa các dấu nhỏ
+                .replace(/[^a-z0-9\s-]/g, '')        // Xóa ký tự đặc biệt
+                .trim()                              // Xóa khoảng trắng 2 đầu
+                .replace(/\s+/g, '-')                // Thay khoảng trắng bằng dấu -
+                .replace(/-+/g, '-');                // Gộp nhiều dấu - liên tiếp thành 1
+        },
+
         formatVND(number) {
             return new Intl.NumberFormat('vi-VI', { style: 'currency', currency: 'VND' }).format(number,)
         },
+
+        truncateString(str, maxLength = 50) {
+            if (str.length <= maxLength) {
+                return str;
+            }
+            return str.slice(0, maxLength) + '...';
+        },
+
         getMonAn() {
             axios
                 .get('http://127.0.0.1:8000/api/quan-an/mon-an/data', {

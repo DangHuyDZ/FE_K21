@@ -13,15 +13,6 @@
 		<nav class="navbar navbar-expand-xl w-100">
 			<ul class="navbar-nav justify-content-start flex-grow-1 gap-1">
 				<li class="nav-item">
-					<router-link to="/quan-an/test">
-						<a class="nav-link" href="/quan-an/test">
-							<div class="parent-icon"><i class="fa-solid fa-bookmark"></i>
-							</div>
-							<div class="menu-title">Test</div>
-						</a>
-					</router-link>
-				</li>
-				<li class="nav-item">
 					<router-link to="/quan-an/danh-muc">
 						<a class="nav-link" href="/quan-an/danh-muc">
 							<div class="parent-icon"><i class="fa-solid fa-list"></i>
@@ -56,11 +47,6 @@
 						<div class="menu-title">Thống Kê</div>
 					</a>
 					<ul class="dropdown-menu">
-						<router-link to="/quan-an/thong-ke-khach-hang">
-							<li>
-								<a class="dropdown-item" href=""><i class="fa-solid fa-users"></i>Khách Hàng</a>
-							</li>
-						</router-link>
 						<router-link to="/quan-an/thong-ke-mon-an">
 							<li>
 								<a class="dropdown-item" href=""><i class="fa-solid fa-utensils"></i>Món Ăn</a>
@@ -73,6 +59,15 @@
 							</li>
 						</router-link>
 					</ul>
+				</li>
+				<li class="nav-item">
+					<router-link to="/quan-an/cau-hinh">
+						<a class="nav-link" href="/quan-an/cau-hinh">
+							<div class="parent-icon"><i class="fa-solid fa-gears"></i>
+							</div>
+							<div class="menu-title"> Cấu Hình</div>
+						</a>
+					</router-link>
 				</li>
 			</ul>
 		</nav>

@@ -11,26 +11,6 @@
 		</div>
 		<nav class="navbar navbar-expand-xl w-100">
 			<ul class="navbar-nav justify-content-start flex-grow-1 gap-1">
-				<li class="nav-item dropdown">
-					<a href="javascript:;" class="nav-link dropdown-toggle dropdown-toggle-nocaret"
-						data-bs-toggle="dropdown">
-						<div class="parent-icon"><i class="bx bx-home-circle"></i></div>
-						<div class="menu-title">Dashboard</div>
-					</a>
-					<ul class="dropdown-menu">
-						<li>
-							<a class="dropdown-item" href="index.html"><i class="bx bx-right-arrow-alt"></i>Default</a>
-						</li>
-						<li>
-							<a class="dropdown-item" href="index.html"><i
-									class="bx bx-right-arrow-alt"></i>Alternate</a>
-						</li>
-						<li>
-							<a class="dropdown-item" href="index.html"><i
-									class="bx bx-right-arrow-alt"></i>Graphical</a>
-						</li>
-					</ul>
-				</li>
 				<li class="nav-item">
 					<router-link to="/shipper/don-hang">
 						<a class="nav-link" href="/shipper/don-hang">
@@ -38,6 +18,36 @@
 								<i class="fa-regular fa-rectangle-list"></i>
 							</div>
 							<div class="menu-title">Đơn Hàng</div>
+						</a>
+					</router-link>
+				</li>
+				<li class="nav-item">
+					<router-link to="/shipper/vi-tri-hien-tai">
+						<a class="nav-link" href="/shipper/vi-tri-hien-tai">
+							<div class="parent-icon">
+								<i class="fa-solid fa-location-dot"></i>
+							</div>
+							<div class="menu-title">Vị Trí Hiện Tại</div>
+						</a>
+					</router-link>
+				</li>
+				<!-- <li class="nav-item">
+					<router-link to="/shipper/vi-tien">
+						<a class="nav-link" href="/shipper/vi-tien">
+							<div class="parent-icon">
+								<i class="fa-solid fa-wallet"></i>
+							</div>
+							<div class="menu-title">Quản Lý Ví</div>
+						</a>
+					</router-link>
+				</li> -->
+				<li class="nav-item">
+					<router-link to="/shipper/thong-ke">
+						<a class="nav-link" href="/shipper/thong-ke">
+							<div class="parent-icon">
+								<i class="fa-solid fa-wallet"></i>
+							</div>
+							<div class="menu-title">Thống Kê</div>
 						</a>
 					</router-link>
 				</li>

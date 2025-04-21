@@ -174,14 +174,14 @@ const routes = [
 		beforeEnter: checkQuanAn,
 	},
 	{
-		path: "/quan-an/thong-ke-khach-hang",
-		component: () => import("../components/QuanAn/ThongKe/KhachHang/index.vue"),
+		path: "/quan-an/thong-ke-doanh-thu",
+		component: () => import("../components/QuanAn/ThongKe/DoanhThu/index.vue"),
 		meta: { layout: "quan_an" },
 		beforeEnter: checkQuanAn,
 	},
 	{
-		path: "/quan-an/thong-ke-doanh-thu",
-		component: () => import("../components/QuanAn/ThongKe/DoanhThu/index.vue"),
+		path: "/quan-an/cau-hinh",
+		component: () => import("../components/QuanAn/Config/index.vue"),
 		meta: { layout: "quan_an" },
 		beforeEnter: checkQuanAn,
 	},
@@ -204,6 +204,24 @@ const routes = [
 	{
 		path: "/shipper/profile",
 		component: () => import("../components/Shipper/Profile/index.vue"),
+		meta: { layout: "shipper" },
+		beforeEnter: checkShipper,
+	},
+	{
+		path: "/shipper/vi-tri-hien-tai",
+		component: () => import("../components/Shipper/ViTriHienTai/index.vue"),
+		meta: { layout: "shipper" },
+		beforeEnter: checkShipper,
+	},
+	{
+		path: "/shipper/vi-tien",
+		component: () => import("../components/Shipper/ViTien/index.vue"),
+		meta: { layout: "shipper" },
+		beforeEnter: checkShipper,
+	},
+	{
+		path: "/shipper/thong-ke",
+		component: () => import("../components/Shipper/ThongKe/index.vue"),
 		meta: { layout: "shipper" },
 		beforeEnter: checkShipper,
 	},

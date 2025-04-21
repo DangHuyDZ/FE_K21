@@ -443,7 +443,7 @@ export default {
 				})
 				.then((res) => {
 					this.list_don_dang_giao = res.data.data;
-					this.list_don_da_giao = res.data.list_don_hang_hoan_thanh;
+					this.list_don_da_giao 	= res.data.list_don_hang_hoan_thanh;
 				})
 				.catch((res) => {
 					const list = Object.values(res.response.data.errors);

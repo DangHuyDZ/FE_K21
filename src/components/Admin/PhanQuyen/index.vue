@@ -13,11 +13,11 @@
                         </div>
                         <div class="col-lg-12">
                             <div class="input-group mt-3 w-100">
-                                <input type="text" class="form-control search-control border border-2 border-secondary"
+                                <input type="text" v-model="search" @keyup="searchQuyen()" class="form-control search-control border border-2 border-secondary"
                                     placeholder="Search...">
                                 <span class="position-absolute top-50 search-show translate-middle-y"
                                     style="left: 15px;"><i class="bx bx-search"></i></span>
-                                <button class="btn btn-outline-secondary" type="button" @click="searchQuyen">Tìm
+                                <button class="btn btn-outline-secondary" type="button" @click="searchQuyen()">Tìm
                                     Kiếm</button>
                             </div>
                         </div>
@@ -60,18 +60,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="(value, index) in list_chuc_vu" :key="index" class="align-middle">
+                                <tr v-for="(value, index) in searchQuyen" :key="index" class="align-middle">
                                     <th class="text-center">{{ index + 1 }}</th>
                                     <td>{{ value.ten_chuc_vu }}</td>
                                     <td class="text-center">
-                                        <button class="btn btn-info text-white">Phân
+                                        <button class="btn btn-info text-white" @click="Object.assign(create_phan_quyen, value),layDataPhanQuyen()">Phân
                                             Quyền</button>
                                     </td>
                                     <td class="text-center">
                                         <i @click="Object.assign(update_chuc_vu, value)"
                                             class="fa-solid fa-square-pen fa-3x text-primary me-2"
                                             data-bs-toggle="modal" data-bs-target="#updateModal"></i>
-                                        <i @click="delete_quyen = value" class="fa-solid fa-trash fa-3x text-danger"
+                                        <i @click="Object.assign(delete_quyen, value)" class="fa-solid fa-trash fa-3x text-danger"
                                             data-bs-toggle="modal" data-bs-target="#xoaQuyenModal"></i>
                                     </td>
                                 </tr>
@@ -109,7 +109,7 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Xóa Quyền</h1>
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Xóa Chức Vụ</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
@@ -122,8 +122,8 @@
                                             <div class="ms-3">
                                                 <h6 class="mb-0 text-dark">Warning</h6>
                                                 <div class="text-dark">
-                                                    <p>Bạn có muốn xóa quyền <b class="text-danger">{{
-                                                        delete_quyen.ten_quyen }}</b> này
+                                                    <p>Bạn có muốn xóa chức vụ <b class="text-danger">{{
+                                                        delete_quyen.ten_chuc_vu }}</b> này
                                                         không?
                                                     </p>
                                                     <p>
@@ -137,7 +137,7 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-danger" @click="deleteQuyen()"
+                                    <button type="button" class="btn btn-danger" @click="deleteChucVu()"
                                         data-bs-dismiss="modal">Xóa</button>
                                 </div>
                             </div>
@@ -169,7 +169,7 @@
                                             <th class="text-center">{{ index + 1 }}</th>
                                             <td class="text-wrap">{{ value.ten_chuc_nang }}</td>
                                             <td class="text-center">
-                                                <button class="btn btn-success">Cấp Quyền</button>
+                                                <button class="btn btn-success" @click="themPhanQuyen(value)">Cấp Quyền</button>
                                             </td>
                                         </tr>
                                     </template>
@@ -183,7 +183,7 @@
         <div class="col-lg-4">
             <div class="card radius-10 border-top border-0 border-3 border-info">
                 <div class="card-header">
-                    Đang Phân Quyền Cho <b class="text-danger">Admin</b>
+                    Đang Phân Quyền Cho <b class="text-danger">{{ create_phan_quyen.ten_chuc_vu || "......" }}</b>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -197,13 +197,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="align-middle">
-                                        <td class="text-wrap">Lấy danh sách danh mục</td>
-                                        <td>Admin</td>
-                                        <td class="text-center">
-                                            <button class="btn btn-danger">Xóa</button>
-                                        </td>
-                                    </tr>
+                                    <template v-for="(value, index) in list_phan_quyen" :key="index">   
+                                        <tr class="align-middle">
+                                            <td class="text-wrap">{{ value.ten_chuc_nang }}</td>
+                                            <td>{{ value.ten_chuc_vu }}</td>
+                                            <td class="text-center">
+                                                <button class="btn btn-danger" @click="deletePhanQuyen(value)">Xóa</button>
+                                            </td>
+                                        </tr>
+                                    </template>
                                 </tbody>
                             </table>
                         </div>
@@ -224,12 +226,24 @@ export default {
             list_chuc_vu: [],
             create_chuc_vu: {},
             update_chuc_vu: {},
-            delete_quyen: {}
+            delete_quyen: {},
+            create_phan_quyen: {
+                chuc_nang_id: null,
+            },
+            list_phan_quyen: [],
+            search: '',
         }
     },
     mounted() {
         this.layDataChucVu();
         this.layDataChucNang();
+    },
+    computed: {
+        searchQuyen() {
+            return this.list_chuc_vu.filter((item) => {
+                return item.ten_chuc_vu.toLowerCase().includes(this.search.toLowerCase());
+            });
+        }
     },
     methods: {
         themChucVu() {
@@ -267,6 +281,17 @@ export default {
                     this.list_chuc_nang = response.data.data;
                 })
         },
+        layDataPhanQuyen() {
+            axios
+                .get('http://127.0.0.1:8000/api/admin/phan-quyen/data/' + this.create_phan_quyen.id, {
+                    headers: {
+                        Authorization: "Bearer " + localStorage.getItem("nhan_vien_login"),
+                    },
+                })
+                .then(response => {
+                    this.list_phan_quyen = response.data.data;
+                })
+        },
 
         layDataChucVu() {
             axios
@@ -301,7 +326,7 @@ export default {
                     });
                 });
         },
-        deleteQuyen() {
+        deleteChucVu() {
             axios
                 .post('http://127.0.0.1:8000/api/admin/chuc-vu/delete', this.delete_quyen, {
                     headers: {
@@ -322,7 +347,57 @@ export default {
                         this.$toast.error(v[0]);
                     });
                 });
-        }
+        },
+        themPhanQuyen(value) {``
+            var payload = {
+                id_chuc_nang: value.id,
+                id_chuc_vu: this.create_phan_quyen.id,
+            }
+            axios
+                .post('http://127.0.0.1:8000/api/admin/phan-quyen-chuc-vu/create', payload, {
+                    headers: {
+                        Authorization: "Bearer " + localStorage.getItem("nhan_vien_login"),
+                    },
+                })
+                .then(response => {
+                    if (response.data.status) {
+                        this.$toast.success(response.data.message);
+                        this.layDataChucNang();
+                        this.layDataPhanQuyen();
+                    } else {
+                        this.$toast.error(response.data.message);
+                    }
+                })
+                 .catch(res => {
+                    const list = Object.values(res.response.data.errors);
+                    list.forEach((v, i) => {
+                        this.$toast.error(v[0]);
+                    });
+                });
+        },
+        deletePhanQuyen(value) {
+            axios
+                .post('http://127.0.0.1:8000/api/admin/phan-quyen-chuc-vu/delete', value, {
+                    headers: {
+                        Authorization: "Bearer " + localStorage.getItem("nhan_vien_login"),
+                    },
+                })
+                .then(response => {
+                    if (response.data.status) {
+                        this.$toast.success(response.data.message);
+                        this.layDataPhanQuyen();
+                    } else {
+                        this.$toast.error(response.data.message);
+                    }
+                })
+                 .catch(res => {
+                    const list = Object.values(res.response.data.errors);
+                    list.forEach((v, i) => {
+                        this.$toast.error(v[0]);
+                    });
+                });
+        },
+
     }
 }
 </script>

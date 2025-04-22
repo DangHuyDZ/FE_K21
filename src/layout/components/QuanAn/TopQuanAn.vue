@@ -4,7 +4,8 @@
 		<nav class="navbar navbar-expand">
 			<div class="topbar-logo-header">
 				<div class="">
-					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8Qs5Fh70n2MpVMZYjJy5R3DuZusdWCzAckA&s" class="logo-icon" alt="logo icon">
+					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8Qs5Fh70n2MpVMZYjJy5R3DuZusdWCzAckA&s"
+						class="logo-icon" alt="logo icon">
 				</div>
 				<div class="">
 					<h4 class="logo-text text-danger">FoodZone</h4>
@@ -84,11 +85,15 @@
 				<ul class="dropdown-menu dropdown-menu-end">
 					<li>
 						<router-link to="/quan-an/profile">
-							<a class="dropdown-item" href="/quan-an/profile"><i class="bx bx-user"></i><span>Profile</span></a>
+							<a class="dropdown-item" href="/quan-an/profile"><i
+									class="bx bx-user"></i><span>Profile</span></a>
 						</router-link>
 					</li>
-					<li><a class="dropdown-item" href="javascript:;"><i
+					<li><a v-on:click="logout()" class="dropdown-item" href="javascript:;"><i
 								class='bx bx-log-out-circle'></i><span>Logout</span></a>
+					</li>
+					<li><a v-on:click="logoutAll()" class="dropdown-item" href="javascript:;"><i
+								class='bx bx-log-out-circle'></i><span>Logout All</span></a>
 					</li>
 				</ul>
 			</div>
@@ -96,13 +101,61 @@
 	</div>
 </template>
 <script>
+import axios from 'axios';
+
 export default {
 	data() {
 		return {
-			ten_quan_an	: localStorage.getItem('ten_quan_an'),
-			hinh_anh	: localStorage.getItem('hinh_anh')
+			ten_quan_an: localStorage.getItem('ten_quan_an'),
+			hinh_anh: localStorage.getItem('hinh_anh')
 		}
 	},
+	methods: {
+		logout() {
+			axios.get('http://127.0.0.1:8000/api/quan-an/dang-xuat', {
+				headers: {
+					Authorization: "Bearer " + localStorage.getItem("quan_an_login"),
+				},
+			})
+				.then(res => {
+					if (res.data.status) {
+						this.$toast.success(res.data.message);
+						localStorage.removeItem('quan_an_login');
+						this.$router.push('/quan-an/dang-nhap');
+					} else {
+						this.$toast.error(res.data.message);
+					}
+				})
+				.catch(res => {
+					const list = Object.values(res.res.data.errors);
+					list.forEach((v, i) => {
+						this.$toast.error(v[0]);
+					});
+				});
+		},
+		logoutAll() {
+			axios.get('http://127.0.0.1:8000/api/quan-an/dang-xuat-tat-ca', {
+				headers: {
+					Authorization: "Bearer " + localStorage.getItem("quan_an_login"),
+				},
+			})
+				.then(res => {
+					if (res.data.status) {
+						this.$toast.success(res.data.message);
+						localStorage.removeItem('quan_an_login');
+						this.$router.push('/quan-an/dang-nhap');
+					} else {
+						this.$toast.error(res.data.message);
+					}
+				})
+				.catch(res => {
+					const list = Object.values(res.res.data.errors);
+					list.forEach((v, i) => {
+						this.$toast.error(v[0]);
+					});
+				});
+		},
+	}
 }
 </script>
 <style></style>

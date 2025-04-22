@@ -78,9 +78,10 @@ const routes = [
 		meta: { layout: "blank" },
 	},
 	{
-		path: "/khach-hang/quan-an",
-		component: () => import("../components/KhachHang/QuanAn/index.vue"),
+		path: "/khach-hang/profile",
+		component: () => import("../components/KhachHang/Profile/index.vue"),
 		meta: { layout: "client" },
+		beforeEnter: checkKhachHang,
 	},
 	{
 		path: "/khach-hang/dang-ky",
@@ -88,15 +89,19 @@ const routes = [
 		meta: { layout: "blank" },
 	},
 	{
-		path: "/khach-hang/profile",
-		component: () => import("../components/KhachHang/Profile/index.vue"),
+		path: "/khach-hang/list-quan-an",
+		component: () => import("../components/KhachHang/QuanAn/index.vue"),
 		meta: { layout: "client" },
 		beforeEnter: checkKhachHang,
 	},
-	// Từng quán nội dung hiển thị sẽ khác nhau. Giống về cấu trúc
-	// Làm sao để ta biết là khác nhau ra sao => dựa vào id_quan_an
 	{
-		path: "/khach-hang/don-dat-hang/:id_quan",
+		path: "/khach-hang/mon-an",
+		component: () => import("../components/KhachHang/MonAn/index.vue"),
+		meta: { layout: "client" },
+		beforeEnter: checkKhachHang,
+	},
+	{
+		path: "/khach-hang/quan-an/:id_quan",
 		component: () => import("../components/KhachHang/DonDatHang/index.vue"),
 		meta: { layout: "client" },
 		props: true,
@@ -108,19 +113,7 @@ const routes = [
 		meta: { layout: "client" },
 		beforeEnter: checkKhachHang,
 	},
-
-	{
-		path: "/khach-hang/Test",
-		component: () => import("../components/KhachHang/Test/index.vue"),
-		meta: { layout: "client" },
-	},
-
-	{
-		path: "/khach-hang/mon-an",
-		component: () => import("../components/KhachHang/MonAn/index.vue"),
-		meta: { layout: "client" },
-		beforeEnter: checkKhachHang,
-	},
+	
 	// Quán Ăn
 	{
 		path: "/quan-an/dang-ky",

@@ -15,14 +15,8 @@ export default function (to, from, next) {
         localStorage.setItem("avatar", res.data.avatar);
         next();
       } else {
-        toaster.error(res.data.message);
         next("/khach-hang/dang-nhap");
+        toaster.error(res.data.message);
       }
     });
-  // var check = localStorage.getItem('nhan_vien_login');
-  // if(check == 1) {
-  //     next();
-  // } else {
-  //     next('/admin/dang-nhap');
-  // }
 }

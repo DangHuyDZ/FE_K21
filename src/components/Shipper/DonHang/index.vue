@@ -46,30 +46,6 @@
 					</a>
 				</li>
 			</ul>
-			<div class="row">
-				<div class="col-lg-5 col-md-6 mb-3">
-					<select class="form-select">
-						<option selected>Khu vực</option>
-						<option>Quận 1</option>
-						<option>Quận 2</option>
-						<option>Quận 3</option>
-						<option>Quận Bình Thạnh</option>
-					</select>
-				</div>
-				<div class="col-lg-5 col-md-6 mb-3">
-					<select class="form-select">
-						<option selected>Sắp xếp theo</option>
-						<option>Thời gian gần nhất</option>
-						<option>Khoảng cách gần nhất</option>
-						<option>Giá trị cao nhất</option>
-					</select>
-				</div>
-				<div class="col-lg-2 col-md-12 mb-3">
-					<button class="btn btn-primary w-100 ">
-						Lọc
-					</button>
-				</div>
-			</div>
 			<div class="tab-content">
 				<div class="tab-pane fade show active" id="available">
 					<div class="row d-flex">
@@ -130,17 +106,9 @@
 										</div>
 									</div>
 									<div class="card-footer">
-										<div class="row">
-											<div class="col-lg-6 col-md-12">
-												<button class="btn btn-primary w-100">Chi tiết</button>
-											</div>
-											<div class="col-lg-6 col-md-12">
-												<button v-on:click="Object.assign(don_hang, value)"
-													data-bs-toggle="modal" data-bs-target="#exampleModal"
-													class="btn btn-success w-100">Nhận
-													đơn</button>
-											</div>
-										</div>
+										<button v-on:click="Object.assign(don_hang, value)" data-bs-toggle="modal"
+											data-bs-target="#exampleModal" class="btn btn-success w-100">Nhận
+											đơn</button>
 									</div>
 								</div>
 							</div>
@@ -154,70 +122,71 @@
 								<div class="card border-warning w-100">
 									<div
 										class="card-header bg-warning d-flex justify-content-between align-items-center">
-										<span class="fw-bold text-white">#ORD-5823</span>
-										<span class="badge bg-secondary text-white">Đang lấy hàng</span>
+										<span class="fw-bold text-white">#{{ value.ma_don_hang }}</span>
+										<span class="badge bg-secondary text-white p-2">
+											{{ value.tinh_trang == 0 ?
+												"Chưa nhận đơn" : value.tinh_trang == 1 ?
+													"Đang đến quán" : value.tinh_trang == 2 ?
+														"Đang giao hàng" : "Đã giao hàng" }}
+										</span>
 									</div>
 									<div class="card-body">
 										<div class="d-flex mb-3">
 											<div class="me-3">
 												<img style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;"
-													class="img-fluid"
-													src="https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2017/09/bun-dau-mam-tom-2-e1505460520519.jpg"
-													alt="">
+													class="img-fluid" :src="value.hinh_anh" alt="">
 											</div>
 											<div>
-												<h6 class="mt-3">Bún Đậu Mắm Tôm A Chảnh</h6>
-												<p class="text-muted mb-0 small">94 Nguyễn Du, Quận 1</p>
-												<div class="small text-warning"><i
-														class="bi bi-hourglass-split me-1"></i>
-													Đang lấy hàng</div>
+												<h6 class="mt-3">{{ value.ten_quan_an }}</h6>
+												<p class="text-muted mb-0 small">{{ value.dia_chi_quan }}</p>
 											</div>
 										</div>
 										<div class="d-flex mb-3">
 											<div class="me-3">
 												<img style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;"
-													class="img-fluid"
-													src="https://cdn-icons-png.flaticon.com/512/4140/4140037.png"
-													alt="">
+													class="img-fluid" :src="value.avatar" alt="">
 											</div>
 											<div>
-												<h6 class="mt-3">Trân Văn A</h6>
-												<p class="text-muted mb-0 small">35 Trần Hưng Đạo, Quận 5</p>
-												<div class="small text-muted"><i class="bi bi-clock-history me-1"></i>
-													Chờ lấy hàng</div>
+												<h6 class="mt-3">{{ value.ten_nguoi_nhan }}</h6>
+												<p class="text-muted mb-0 small">{{ value.dia_chi_khach }}</p>
 											</div>
 										</div>
 										<div class="progress mb-3" style="height: 8px;">
-											<div class="progress-bar bg-success" role="progressbar" style="width: 40%;"
-												aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+											<div class="progress-bar bg-success" role="progressbar"
+												:style="'width: ' + (value.tinh_trang * 30) + '%;'" aria-valuemin="0"
+												aria-valuemax="100"></div>
 										</div>
 										<div class="d-flex justify-content-between mb-3">
 											<div class="text-center">
-												<i class="bi bi-check-circle-fill text-success"></i>
-												<div class="small">Nhận đơn</div>
+												<div class="small text-success">Nhận đơn</div>
 											</div>
 											<div class="text-center">
-												<i class="bi bi-circle-fill text-warning"></i>
-												<div class="small">Lấy hàng</div>
+												<div v-if="value.tinh_trang > 1" class="small text-success">Lấy hàng
+												</div>
+												<div v-else class="small">Lấy hàng</div>
 											</div>
 											<div class="text-center">
-												<i class="bi bi-circle text-muted"></i>
-												<div class="small">Giao hàng</div>
+												<div v-if="value.tinh_trang > 2" class="small text-success">Giao hàng
+												</div>
+												<div v-else class="small">Giao hàng</div>
 											</div>
 											<div class="text-center">
-												<i class="bi bi-circle text-muted"></i>
-												<div class="small">Hoàn thành</div>
+												<div v-if="value.tinh_trang > 2" class="small text-success">Hoàn thành
+												</div>
+												<div v-else class="small">Hoàn thành</div>
 											</div>
 										</div>
 
 										<div class="d-flex justify-content-between border-top pt-3">
 											<div>
 												<span class="d-block">Giá trị đơn hàng:</span>
-												<span class="fw-bold text-success">180.000đ</span>
+												<span class="fw-bold text-success">{{ formatVND(value.tong_tien)
+													}}</span>
 											</div>
 											<div>
 												<span class="d-block">Phí vận chuyển:</span>
-												<span class="fw-bold text-primary">35.000đ</span>
+												<span class="fw-bold text-primary">{{ formatVND(value.phi_ship)
+													}}</span>
 											</div>
 											<div>
 												<span class="d-block">Thanh toán:</span>
@@ -226,15 +195,12 @@
 										</div>
 									</div>
 									<div class="card-footer bg-white">
-										<div class="d-flex justify-content-between">
-											<span class="text-muted small"><i class="bi bi-clock me-1"></i> Nhận đơn 20
-												phút trước</span>
+										<div class="">
 											<div>
 												<button v-if="value.tinh_trang == 1" disabled
-													class="btn btn-outline-warning ">Quán đang chế biến</button>
+													class="btn btn-warning w-100">Quán đang chế biến</button>
 												<button v-else v-on:click="daGiao(value)"
-													class="btn btn-outline-success ">Giao Hàng</button>
-												<button class="btn btn-outline-danger ms-2">Gặp vấn đề</button>
+													class="btn btn-success w-100">Giao Hàng</button>
 											</div>
 										</div>
 									</div>
@@ -244,26 +210,6 @@
 					</div>
 				</div>
 				<div class="tab-pane fade" id="completed">
-					<div class="completed-orders-header mb-4">
-						<div class="card">
-							<div class="card-body">
-								<div class="d-flex justify-content-between align-items-center">
-									<h4 class="mb-1">Lịch sử giao hàng</h4>
-									<div class="d-flex gap-2">
-										<div class="input-group">
-											<input type="date" class="form-control" placeholder="Chọn ngày">
-											<button class="btn btn-outline-primary">
-												Lọc
-											</button>
-										</div>
-										<button class="btn btn-outline-success text-nowrap">
-											Xuất báo cáo
-										</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
 					<div class="row g-4">
 						<template v-for="(value, index) in list_don_da_giao" :key="index">
 							<div class="col-xl-4 col-lg-6 col-md-6 col-12 d-flex">
@@ -280,8 +226,7 @@
 									<div class="card-body">
 										<div class="restaurant-info d-flex align-items-center mb-4">
 											<div class="restaurant-image me-3">
-												<img :src="value.hinh_anh"
-													class="rounded-3 shadow-sm"
+												<img :src="value.hinh_anh" class="rounded-3 shadow-sm"
 													style="width: 100px; height: 100px; object-fit: cover;" alt="">
 											</div>
 											<div class="restaurant-details">
@@ -301,8 +246,7 @@
 										<div class="delivery-info bg-light rounded-4 p-3 mb-4">
 											<div class="d-flex align-items-center">
 												<div class="customer-avatar me-3">
-													<img :src="value.avatar"
-														class="rounded-circle shadow-sm"
+													<img :src="value.avatar" class="rounded-circle shadow-sm"
 														style="width: 50px; height: 50px; object-fit: cover;" alt="">
 												</div>
 												<div class="customer-info">
@@ -443,7 +387,7 @@ export default {
 				})
 				.then((res) => {
 					this.list_don_dang_giao = res.data.data;
-					this.list_don_da_giao 	= res.data.list_don_hang_hoan_thanh;
+					this.list_don_da_giao = res.data.list_don_hang_hoan_thanh;
 				})
 				.catch((res) => {
 					const list = Object.values(res.response.data.errors);

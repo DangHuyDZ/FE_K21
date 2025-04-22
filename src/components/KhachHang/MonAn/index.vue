@@ -6,11 +6,11 @@
                     <h2 class="card-title mb-0 fw-bold">Danh Sách Các Món Ăn</h2>
                 </div>
                 <div class="btn-group">
-                    <button class="btn btn-sm btn-outline-primary px-3">
+                    <button v-on:click="sapXepTangDan()" class="btn btn-sm btn-outline-primary px-3">
                         <i class="fas fa-sort-amount-down-alt me-1"></i>
                         Tăng dần
                     </button>
-                    <button class="btn btn-sm btn-outline-primary px-3">
+                    <button v-on:click="sapXepGiamDan()" class="btn btn-sm btn-outline-primary px-3">
                         <i class="fas fa-sort-amount-up-alt me-1"></i>
                         Giảm dần
                     </button>
@@ -20,9 +20,9 @@
     </div>
     <div class="row ">
         <template v-for="(value, index) in list_mon_an" :key="index">
-            <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
                 <div class="card shadow-sm">
-                    <router-link :to="'/khach-hang/don-dat-hang/' + value.id_quan_an">
+                    <router-link :to="'/khach-hang/quan-an/' + value.id_quan_an">
                         <img v-bind:src="value.hinh_anh" class="card-img-top" style="height: 200px; object-fit: cover;">
                         <div class="card-body">
                             <h6 class="card-title fw-semibold mb-2">{{ value.ten_mon_an }}</h6>
@@ -71,6 +71,20 @@ export default {
                     });
                 });
         },
+        sapXepTangDan() {
+            this.list_mon_an = this.list_mon_an.slice().sort((a, b) => {
+                const giaA = (a.gia_khuyen_mai && a.gia_khuyen_mai > 0) ? a.gia_khuyen_mai : a.gia_ban;
+                const giaB = (b.gia_khuyen_mai && b.gia_khuyen_mai > 0) ? b.gia_khuyen_mai : b.gia_ban;
+                return giaA - giaB;
+            });
+        },
+        sapXepGiamDan() {
+            this.list_mon_an = this.list_mon_an.slice().sort((a, b) => {
+                const giaA = (a.gia_khuyen_mai && a.gia_khuyen_mai > 0) ? a.gia_khuyen_mai : a.gia_ban;
+                const giaB = (b.gia_khuyen_mai && b.gia_khuyen_mai > 0) ? b.gia_khuyen_mai : b.gia_ban;
+                return giaB - giaA;
+            });
+        }
     }
 }
 </script>

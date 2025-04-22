@@ -181,6 +181,7 @@
             </div>
         </div>
     </div>
+
     <div class="row mt-4">
         <div class="col-lg-12">
             <div class="card">
@@ -192,13 +193,19 @@
                             </h5>
                         </div>
                         <div class="col-lg-2">
-                            <div>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option value="">-- Danh Mục Món Ăn --</option>
-                                    <template v-for="(v, k) in phanLoai" :key="k">
-                                        <option :value="v.id">{{ v.ten_phan_loai }}</option>
-                                    </template>
-                                </select>
+                            <div class="dropdown">
+                                <button class="btn btn-white dropdown-toggle w-100" type="button" id="dropdownDanhMuc"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Danh Mục Món Ăn
+                                </button>
+                                <ul class="dropdown-menu" style="max-height: 250px; overflow-y: auto;"
+                                    aria-labelledby="dropdownDanhMuc">
+                                    <li v-for="(v, k) in phanLoai" :key="k">
+                                        <a class="dropdown-item" href="#" @click.prevent="chonDanhMuc(v.id)">
+                                            {{ v.ten_danh_muc }}
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                         <div class="col-lg-2">
@@ -282,35 +289,35 @@
             <div class="card-body">
                 <div class="row product-grid">
                     <template v-for="(v, k) in quanAn" :key="k">
-                        <div class="col-lg-4 d-flex" v-if="k < 6">
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-12 d-flex" v-if="k < 6">
                             <div class="card flex-fill">
-                                <router-link :to="'/khach-hang/don-dat-hang/' + v.id">
+                                <router-link :to="'/khach-hang/quan-an/' + v.id">
                                     <div class="card-body">
-                                    <div class="row g-0">
-                                        <div class="col-md-4">
-                                            <img :src="v.hinh_anh" class="img-fluid rounded-start" alt="..."
-                                                style="height: 100%;">
-                                        </div>
-                                        <div class="col-md-8">
-                                            <div class="card-body">
-                                                <h5 class="card-title"><b>
-                                                        {{ v.ten_quan_an }}</b></h5>
-                                                <p>{{ v.dia_chi }}
-                                                </p>
-                                                <p><i class="fa-solid fa-tags me-1"></i> Tối thiểu {{
-                                                    v.toi_thieu }} <i
-                                                        class="fa-solid fa-circle-dollar-to-slot ms-3 me-1"></i>
-                                                    Giá
-                                                    {{ v.gia }}</p>
-                                                <div class="d-flex align-items-center mt-3">
-                                                    <i class="fa-solid fa-tag text-danger me-2"></i> <span
-                                                        class="text-primary"><b>Giảm hết {{ v.giam_gia
+                                        <div class="row g-0">
+                                            <div class="col-md-5">
+                                                <img v-bind:src="v.hinh_anh" class="img-fluid rounded-start" alt="..."
+                                                    style="width: 100%;height: 100%;">
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="card-body">
+                                                    <h5 class="card-title"><b>
+                                                            {{ v.ten_quan_an }}</b></h5>
+                                                    <p>{{ v.dia_chi }}
+                                                    </p>
+                                                    <p><i class="fa-solid fa-tags me-1"></i> Tối thiểu {{
+                                                        v.toi_thieu }} <i
+                                                            class="fa-solid fa-circle-dollar-to-slot ms-3 me-1"></i>
+                                                        Giá
+                                                        {{ v.gia }}</p>
+                                                    <div class="d-flex align-items-center mt-3">
+                                                        <i class="fa-solid fa-tag text-danger me-2"></i> <span
+                                                            class="text-primary"><b>Giảm hết {{ v.giam_gia
                                                             }}</b></span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                                 </router-link>
                             </div>
                         </div>
@@ -334,11 +341,11 @@
                         <template v-for="(v, k) in list_voucher" :key="k">
                             <div class="col-lg-2 d-flex">
                                 <div class="card flex-fill">
-                                    <img :src="v.anh" class="card-img-top" alt="...">
+                                    <img :src="v.hinh_anh" class="card-img-top" >
                                     <div class="card-body">
                                         <h6 class="card-title cursor-pointer">{{ v.ten_voucher }}</h6>
                                         <div class="clearfix">
-                                            <p class="mb-0 float-start">{{ v.dia_diem }} địa điểm</p>
+                                            <p class="mb-0 float-start text-danger">{{ v.ten_quan_an }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -375,9 +382,11 @@ export default {
             axios
                 .get('http://127.0.0.1:8000/api/khach-hang/trang-chu/data')
                 .then((res) => {
-                    this.monAnData      = res.data.mon_an;
-                    this.quanAn         = res.data.quan_an_yeu_thich;
-                    this.list_voucher   = res.data.voucher;
+                    this.monAnData = res.data.mon_an;
+                    this.originalMonAnData = res.data.mon_an;
+                    this.quanAn = res.data.quan_an_yeu_thich;
+                    this.list_voucher = res.data.voucher;
+                    this.phanLoai = res.data.phan_loai;
                 })
                 .catch((res) => {
                     const list = Object.values(res.response.data.errors);
@@ -422,4 +431,10 @@ export default {
 
 };
 </script>
-<style></style>
+<style>
+.dropdown-menu {
+    max-height: 250px;
+    width: 100%;
+    overflow-y: auto;
+}
+</style>

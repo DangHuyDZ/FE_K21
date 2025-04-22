@@ -1,9 +1,7 @@
 <template>
     <div class="wrapper">
-		<div class="header-wrapper">
             <TopClient></TopClient>
             <MenuClient></MenuClient>
-		</div>
 		<div class="page-wrapper">
 			<div class="page-content">
                 <router-view> </router-view>

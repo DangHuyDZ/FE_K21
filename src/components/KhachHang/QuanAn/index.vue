@@ -37,112 +37,75 @@
         </div>
     </div>
     <div class="row product-grid">
-        <div class="col-lg-2 d-flex">
-            <div class="card flex-fill">
-                <img src="https://down-bs-vn.img.susercontent.com/vn-11134513-7r98o-lsv4kujdxehl63@resize_ss280x175!@crop_w280_h175_cT"
-                    class="card-img-top" alt="..." style="height: 200px;">
-                <div class="card-body">
-                    <h6 class="card-title cursor-pointer">Bún Bò Huế Ngon</h6>
-                    <div class="clearfix mt-auto">
-                        <p class="mb-0 float-start">123 Đường Lê Lợi, Quận 1, TP.HCM</p>
-                    </div>
-                    <p class="mt-2"><i class="fa-solid fa-tags me-1"></i> Tối thiểu 30k <i
-                            class="fa-solid fa-circle-dollar-to-slot ms-3 me-1"></i> Giá 50k</p>
-                    <div class="d-flex align-items-center mt-auto"><i class="fa-solid fa-tag text-danger me-2"></i>
-                        <span class="text-primary"><b>Giảm hết 30%</b></span>
-                    </div>
+        <template v-for="(v, k) in list_quan_an" :key="k">
+            <div class="col-xl-4 col-lg-6 col-md-6 col-12 d-flex">
+                <div class="card flex-fill">
+                    <router-link :to="'/khach-hang/quan-an/' + v.id">
+                        <div class="card-body text-dark">
+                            <div class="row g-0">
+                                <div class="col-md-5">
+                                    <img v-bind:src="v.hinh_anh" class="img-fluid rounded-start" alt="..."
+                                        style="width: 100%;height: 100%;">
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><b>
+                                                {{ v.ten_quan_an }}</b></h5>
+                                        <p>{{ v.dia_chi }}
+                                        </p>
+                                        <p><i class="fa-solid fa-tags me-1"></i> Tối thiểu {{
+                                            v.gia_min }} <i class="fa-solid fa-circle-dollar-to-slot ms-3 me-1"></i>
+                                            Giá
+                                            {{ v.gia_max }}</p>
+                                        <div class="d-flex align-items-center mt-3">
+                                            <i class="fa-solid fa-tag text-danger me-2"></i> <span
+                                                class="text-primary"><b>Giảm hết {{ v.giam_gia
+                                                }}</b></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </router-link>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-2 d-flex">
-            <div class="card flex-fill"><img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiRd5rlVktjl029OJYgVUqNBKHiKWPJH0ZeA&amp;s"
-                    class="card-img-top" alt="..." style="height: 200px;">
-                <div class="card-body">
-                    <h6 class="card-title cursor-pointer">Phở Thìn Hà Nội</h6>
-                    <div class="clearfix mt-auto">
-                        <p class="mb-0 float-start">456 Đường Nguyễn Văn Trỗi, Quận 3, TP.HCM</p>
-                    </div>
-                    <p class="mt-2"><i class="fa-solid fa-tags me-1"></i> Tối thiểu 30k <i
-                            class="fa-solid fa-circle-dollar-to-slot ms-3 me-1"></i> Giá 50k</p>
-                    <div class="d-flex align-items-center mt-auto"><i class="fa-solid fa-tag text-danger me-2"></i>
-                        <span class="text-primary"><b>Giảm hết 30%</b></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-2 d-flex">
-            <div class="card flex-fill"><img
-                    src="https://blog.onelife.vn/wp-content/uploads/2021/11/cach-lam-banh-mi-thit-nuong-mon-an-sang-227560043900.jpg"
-                    class="card-img-top" alt="..." style="height: 200px;">
-                <div class="card-body">
-                    <h6 class="card-title cursor-pointer">Bánh Mì Thịt Nướng</h6>
-                    <div class="clearfix mt-auto">
-                        <p class="mb-0 float-start">789 Đường Trần Hưng Đạo, Quận 5, TP.HCM</p>
-                    </div>
-                    <p class="mt-2"><i class="fa-solid fa-tags me-1"></i> Tối thiểu 30k <i
-                            class="fa-solid fa-circle-dollar-to-slot ms-3 me-1"></i> Giá 50k</p>
-                    <div class="d-flex align-items-center mt-auto"><i class="fa-solid fa-tag text-danger me-2"></i>
-                        <span class="text-primary"><b>Giảm hết 30%</b></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-2 d-flex">
-            <div class="card flex-fill"><img
-                    src="https://i-giadinh.vnecdn.net/2023/05/15/Buoc-8-Thanh-pham-1-8-8366-1684125654.jpg"
-                    class="card-img-top" alt="..." style="height: 200px;">
-                <div class="card-body">
-                    <h6 class="card-title cursor-pointer">Hủ Tiếu Nam Vang</h6>
-                    <div class="clearfix mt-auto">
-                        <p class="mb-0 float-start">1010 Đường Lý Thường Kiệt, Quận 10, TP.HCM</p>
-                    </div>
-                    <p class="mt-2"><i class="fa-solid fa-tags me-1"></i> Tối thiểu 30k <i
-                            class="fa-solid fa-circle-dollar-to-slot ms-3 me-1"></i> Giá 50k</p>
-                    <div class="d-flex align-items-center mt-auto"><i class="fa-solid fa-tag text-danger me-2"></i>
-                        <span class="text-primary"><b>Giảm hết 30%</b></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-2 d-flex">
-            <div class="card flex-fill"><img src="https://sakos.vn/wp-content/uploads/2024/09/bia.jpg"
-                    class="card-img-top" alt="..." style="height: 200px;">
-                <div class="card-body">
-                    <h6 class="card-title cursor-pointer">Cơm Tấm Sài Gòn</h6>
-                    <div class="clearfix mt-auto">
-                        <p class="mb-0 float-start">1111 Đường Nguyễn Tri Phương, Quận 10, TP.HCM</p>
-                    </div>
-                    <p class="mt-2"><i class="fa-solid fa-tags me-1"></i> Tối thiểu 30k <i
-                            class="fa-solid fa-circle-dollar-to-slot ms-3 me-1"></i> Giá 50k</p>
-                    <div class="d-flex align-items-center mt-auto"><i class="fa-solid fa-tag text-danger me-2"></i>
-                        <span class="text-primary"><b>Giảm hết 30%</b></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-2 d-flex">
-            <div class="card flex-fill"><img
-                    src="https://static.vinwonders.com/production/bun-rieu-cua-da-nang-16_optimized.jpeg"
-                    class="card-img-top" alt="..." style="height: 200px;">
-                <div class="card-body">
-                    <h6 class="card-title cursor-pointer">Bún Riêu Cua</h6>
-                    <div class="clearfix mt-auto">
-                        <p class="mb-0 float-start">1212 Đường Bạch Đằng, Bình Thạnh, TP.HCM</p>
-                    </div>
-                    <p class="mt-2"><i class="fa-solid fa-tags me-1"></i> Tối thiểu 30k <i
-                            class="fa-solid fa-circle-dollar-to-slot ms-3 me-1"></i> Giá 50k</p>
-                    <div class="d-flex align-items-center mt-auto"><i class="fa-solid fa-tag text-danger me-2"></i>
-                        <span class="text-primary"><b>Giảm hết 30%</b></span>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </template>
     </div>
 </template>
 <script>
-export default {
+import axios from 'axios';
 
+export default {
+    data() {
+        return {
+            list_quan_an: [],
+        }
+    },
+    mounted() {
+        this.loadData();
+    },
+    methods: {
+        formatVND(number) {
+            return new Intl.NumberFormat('vi-VI', { style: 'currency', currency: 'VND' }).format(number,)
+        },
+        loadData() {
+            axios
+                .get('http://127.0.0.1:8000/api/khach-hang/quan-an/data', {
+                    headers: {
+                        Authorization: "Bearer " + localStorage.getItem("khach_hang_login"),
+                    },
+                })
+                .then((res) => {
+                    this.list_quan_an = res.data.data;
+                })
+                .catch((res) => {
+                    const list = Object.values(res.response.data.errors);
+                    list.forEach((v, i) => {
+                        this.$toast.error(v[0]);
+                    });
+                })
+        },
+    },
 }
 </script>
 <style></style>

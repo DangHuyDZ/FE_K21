@@ -31,20 +31,11 @@
 					</router-link>
 				</li>
 				<li class="nav-item">
-					<router-link to="/khach-hang/quan-an">
-						<a class="nav-link" href="/khach-hang/quan-an">
+					<router-link to="/khach-hang/list-quan-an">
+						<a class="nav-link" href="/khach-hang/list-quan-an">
 							<div class="parent-icon"><i class="fa-solid fa-shop"></i>
 							</div>
 							<div class="menu-title">Quán Ăn</div>
-						</a>
-					</router-link>
-				</li>
-				<li class="nav-item">
-					<router-link to="/khach-hang/don-dat-hang">
-						<a class="nav-link" href="/khach-hang/don-dat-hang">
-							<div class="parent-icon"><i class="fa-solid fa-cart-shopping"></i>
-							</div>
-							<div class="menu-title">Đơn Đặt Hàng</div>
 						</a>
 					</router-link>
 				</li>
@@ -57,7 +48,7 @@
 						</a>
 					</router-link>
 				</li>
-				
+
 			</ul>
 		</nav>
 	</div>

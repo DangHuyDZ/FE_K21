@@ -19,7 +19,7 @@
                                     <th>Trạng Thái</th>
                                     <th>Shipper</th>
                                     <th>Thông Tin Nhận Hàng</th>
-                                    <th>Chi Tiết</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -58,10 +58,19 @@
                                             {{ value.dia_chi }} - {{ value.ten_nguoi_nhan }} - {{ value.so_dien_thoai }}
                                         </td>
                                         <td class="text-center">
-                                            <button v-on:click="xemChiTiet(value); Object.assign(chi_tiet, value)"
+                                            <button v-on:click="Object.assign(chi_tiet, value)"
                                                 type="button" class="btn btn-primary btn-sm radius-30 px-4"
                                                 data-bs-toggle="modal" data-bs-target="#orderDetailsModal">
                                                 <i class="bx bx-detail me-1"></i>Chi tiết
+                                            </button>
+                                            <button v-if="value.is_thanh_toan == 0" v-on:click="xemChiTiet(value); Object.assign(chi_tiet, value)"
+                                                type="button" class="btn btn-danger btn-sm radius-30 px-4 ms-2"
+                                                data-bs-toggle="modal" data-bs-target="#thanhToanModal">
+                                                <i class="fa-solid fa-money-bill-transfer"></i>Chưa Thanh Toán
+                                            </button>
+                                            <button v-else
+                                                type="button" class="btn btn-success btn-sm radius-30 px-4 ms-2">
+                                                <i class="fa-solid fa-money-bill-transfer"></i>Đã Thanh Toán
                                             </button>
                                         </td>
                                     </tr>
@@ -118,6 +127,88 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="thanhToanModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">
+                        <i class="fas fa-money-check-alt me-2"></i>Cổng Thanh Toán Online
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="alert alert-info mb-4" role="alert">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Quý khách vui lòng quét mã QR để thanh toán. Đơn hàng sẽ được xác nhận sau khi thanh toán thành công!
+                    </div>
+                    
+                    <div class="row g-4">
+                        <div class="col-lg-5">
+                            <div class="text-center p-3 border rounded-3 bg-light h-100 d-flex flex-column justify-content-center">
+                                <img src="https://img.vietqr.io/image/MB-1910061030119-qr_only.png" alt="QR Code"
+                                    class="img-fluid mb-3" style="max-width: 200px; margin: 0 auto;" />
+                                <h5 class="text-primary mb-2">Mã Đơn Hàng: {{ chi_tiet.ma_don_hang }}</h5>
+                                <h4 class="text-danger fw-bold">{{ formatVND(chi_tiet.tong_tien) }}</h4>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-7">
+                            <div class="card border-0 bg-light h-100">
+                                <div class="card-body">
+                                    <div class="mb-4">
+                                        <h6 class="text-primary mb-3">
+                                            <i class="fas fa-user-circle me-2"></i>Thông Tin Người Nhận
+                                        </h6>
+                                        <div class="ps-4">
+                                            <div class="row mb-2">
+                                                <div class="col-4 text-secondary">Họ và tên:</div>
+                                                <div class="col-8 fw-medium">{{ chi_tiet.ten_nguoi_nhan }}</div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-4 text-secondary">Điện thoại:</div>
+                                                <div class="col-8 fw-medium">{{ chi_tiet.so_dien_thoai }}</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-4 text-secondary">Địa chỉ:</div>
+                                                <div class="col-8 fw-medium">{{ chi_tiet.dia_chi }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <h6 class="text-primary mb-3">
+                                            <i class="fas fa-money-bill-wave me-2"></i>Chi Tiết Thanh Toán
+                                        </h6>
+                                        <div class="ps-4">
+                                            <div class="d-flex justify-content-between mb-2">
+                                                <span class="text-secondary">Tiền hàng:</span>
+                                                <span class="fw-medium">{{ formatVND(chi_tiet.tien_hang) }}</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-2">
+                                                <span class="text-secondary">Phí ship:</span>
+                                                <span class="fw-medium">{{ formatVND(chi_tiet.phi_ship) }}</span>
+                                            </div>
+                                            <hr class="my-2">
+                                            <div class="d-flex justify-content-between">
+                                                <span class="fw-medium">Tổng thanh toán:</span>
+                                                <span class="h5 mb-0 text-danger fw-bold">{{ formatVND(chi_tiet.tong_tien) }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Đóng
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -126,9 +217,9 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            list_don_hang: [],
-            chi_tiet: {},
-            list_chi_tiet: [],
+            list_don_hang   : [],
+            chi_tiet        : {},
+            list_chi_tiet   : [],
         }
     },
     mounted() {

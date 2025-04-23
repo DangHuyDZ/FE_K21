@@ -96,6 +96,18 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row mb-2">
+                        <div class="col-lg-12">
+                            <div class="position-relative search-bar-box input-group" style="width: 100%;">
+                                <input @keyup="timKiem()" v-model="tim_kiem.noi_dung_tim" type="text" class="form-control search-control" placeholder="Tìm Kiếm?">
+                                <span class="position-absolute top-50 search-show translate-middle-y"><i
+                                        class='bx bx-search'></i></span>
+                                        <span class="position-absolute top-50 search-close translate-middle-y"><i
+                                            class='bx bx-x'></i></span>
+                                <button v-on:click="timKiem()" class="btn btn-primary">Tìm Kiếm</button>
+                            </div>
+                        </div>
+                    </div>
                     <div class="table-responsive">
                         <table class="table table-bordered table-hover mb-0">
                             <thead class="table-light">
@@ -460,6 +472,7 @@ export default {
             delete_danh_muc: {},
             list_quan_huyen: [],
             tinh_thanh: {},
+            tim_kiem: {},
         };
     },
     mounted() {
@@ -467,6 +480,20 @@ export default {
         this.LoadDataTinhHuyen();
     },
     methods: {
+        timKiem() {
+            axios
+                .post("http://127.0.0.1:8000/api/admin/danh-muc/tim-kiem", this.tim_kiem, {
+                    headers: {
+                        Authorization: 'Bearer ' + localStorage.getItem("nhan_vien_login")
+                    }
+                })
+                .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
+                    this.list_danh_muc = res.data.data;
+                });
+        },
         xemQuanHuyen(value) {
             this.tinh_thanh = value;
             axios

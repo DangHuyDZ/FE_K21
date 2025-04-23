@@ -10,6 +10,19 @@
                     </div>
                 </div>
                 <div class="card-body">
+                    <div class="row mb-2 mt-2">
+                        <div class="col-lg-12">
+                            <div class="position-relative search-bar-box input-group" style="width: 100%;">
+                                <input @keyup="timKiem()" v-model="tim_kiem.noi_dung_tim" type="text"
+                                    class="form-control search-control" placeholder="Tìm Kiếm?">
+                                <span class="position-absolute top-50 search-show translate-middle-y"><i
+                                        class='bx bx-search'></i></span>
+                                <span class="position-absolute top-50 search-close translate-middle-y"><i
+                                        class='bx bx-x'></i></span>
+                                <button v-on:click="timKiem()" class="btn btn-primary">Tìm Kiếm</button>
+                            </div>
+                        </div>
+                    </div>
                     <table class="table table-bordered mb-0">
                         <thead>
                             <tr class="text-center align-middle text-nowrap text-light bg-primary">
@@ -177,7 +190,7 @@
                             <div class="ms-3">
                                 <h6 class="mb-0 text-white">Cảnh Báo!</h6>
                                 <div class="text-white">Bạn có chắc chắn xóa tài khoản <b>{{ del_khach_hang.ho_va_ten
-                                }}</b> này không!</div>
+                                        }}</b> này không!</div>
                             </div>
                         </div>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -218,13 +231,28 @@ export default {
                 is_active: '',
                 is_block: ''
             },
-            del_khach_hang: {}
+            del_khach_hang: {},
+            tim_kiem: {},
         };
     },
     mounted() {
         this.loadData();
     },
     methods: {
+        timKiem() {
+            axios
+                .post("http://127.0.0.1:8000/api/admin/khach-hang/tim-kiem", this.tim_kiem, {
+                    headers: {
+                        Authorization: 'Bearer ' + localStorage.getItem("nhan_vien_login")
+                    }
+                })
+                .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
+                    this.list_khach_hang = res.data.data;
+                });
+        },
         loadData() {
             axios.get('http://127.0.0.1:8000/api/admin/khach-hang/data', {
                 headers: {
@@ -259,7 +287,7 @@ export default {
                         this.$toast.error(res.data.message);
                     }
                 })
-                 .catch(res => {
+                .catch(res => {
                     const list = Object.values(res.response.data.errors);
                     list.forEach((v, i) => {
                         this.$toast.error(v[0]);
@@ -288,7 +316,7 @@ export default {
                         this.$toast.error(res.data.message);
                     }
                 })
-                 .catch(res => {
+                .catch(res => {
                     const list = Object.values(res.response.data.errors);
                     list.forEach((v, i) => {
                         this.$toast.error(v[0]);
@@ -310,7 +338,7 @@ export default {
                         this.$toast.error(res.data.message);
                     }
                 })
-                 .catch(res => {
+                .catch(res => {
                     const list = Object.values(res.response.data.errors);
                     list.forEach((v, i) => {
                         this.$toast.error(v[0]);

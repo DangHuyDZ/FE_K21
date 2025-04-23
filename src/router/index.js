@@ -113,7 +113,6 @@ const routes = [
 		meta: { layout: "client" },
 		beforeEnter: checkKhachHang,
 	},
-	
 	// Quán Ăn
 	{
 		path: "/quan-an/dang-ky",

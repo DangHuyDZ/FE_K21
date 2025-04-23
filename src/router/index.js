@@ -113,6 +113,13 @@ const routes = [
 		meta: { layout: "client" },
 		beforeEnter: checkKhachHang,
 	},
+	{
+        path: '/tim-kiem/:thong_tin',
+        component: () => import('../components/KhachHang/TimKiem/index.vue'),
+        meta: { layout: 'client' },
+        name: 'name_tim_kiem',
+        props: true
+    },
 	
 	// Quán Ăn
 	{

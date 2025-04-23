@@ -8,6 +8,19 @@
                         Thêm nhân viên
                     </button>
                 </div>
+                <div class="row mb-2 mt-2">
+                    <div class="col-lg-12">
+                        <div class="position-relative search-bar-box input-group" style="width: 100%;">
+                            <input @keyup="timKiem()" v-model="tim_kiem.noi_dung_tim" type="text"
+                                class="form-control search-control" placeholder="Tìm Kiếm?">
+                            <span class="position-absolute top-50 search-show translate-middle-y"><i
+                                    class='bx bx-search'></i></span>
+                            <span class="position-absolute top-50 search-close translate-middle-y"><i
+                                    class='bx bx-x'></i></span>
+                            <button v-on:click="timKiem()" class="btn btn-primary">Tìm Kiếm</button>
+                        </div>
+                    </div>
+                </div>
                 <div class="card-body table-responsive">
                     <table class="table table-bordered table-hover">
                         <thead>
@@ -246,7 +259,8 @@ export default {
                 tinh_trang: "",
             },
             del_nhan_vien: {},
-            list_chuc_vu: []
+            list_chuc_vu: [],
+            tim_kiem: {},
         };
     },
     mounted() {
@@ -254,6 +268,20 @@ export default {
         this.layDataChucVu();
     },
     methods: {
+        timKiem() {
+            axios
+                .post("http://127.0.0.1:8000/api/admin/nhan-vien/tim-kiem", this.tim_kiem, {
+                    headers: {
+                        Authorization: 'Bearer ' + localStorage.getItem("nhan_vien_login")
+                    }
+                })
+                .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
+                    this.list_nhan_vien = res.data.data;
+                });
+        },
         layDataChucVu() {
             axios
                 .get('http://127.0.0.1:8000/api/admin/chuc-vu/data', {
@@ -301,7 +329,7 @@ export default {
                         this.$toast.error(res.data.message);
                     }
                 })
-                 .catch(res => {
+                .catch(res => {
                     const list = Object.values(res.response.data.errors);
                     list.forEach((v, i) => {
                         this.$toast.error(v[0]);
@@ -323,7 +351,7 @@ export default {
                         this.$toast.error(res.data.message);
                     }
                 })
-                 .catch(res => {
+                .catch(res => {
                     const list = Object.values(res.response.data.errors);
                     list.forEach((v, i) => {
                         this.$toast.error(v[0]);
@@ -345,7 +373,7 @@ export default {
                         this.$toast.error(res.data.message);
                     }
                 })
-                 .catch(res => {
+                .catch(res => {
                     const list = Object.values(res.response.data.errors);
                     list.forEach((v, i) => {
                         this.$toast.error(v[0]);
@@ -354,7 +382,7 @@ export default {
         },
         changeStatus(value) {
             axios
-            .post("http://127.0.0.1:8000/api/admin/nhan-vien/change-status", value, {
+                .post("http://127.0.0.1:8000/api/admin/nhan-vien/change-status", value, {
                     headers: {
                         Authorization: "Bearer " + localStorage.getItem("nhan_vien_login"),
                     },

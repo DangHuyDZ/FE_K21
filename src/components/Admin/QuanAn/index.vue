@@ -12,9 +12,23 @@
                     </div>
                 </div>
                 <div class="card-body">
+                    <div class="row mb-2">
+                        <div class="col-lg-12">
+                            <div class="position-relative search-bar-box input-group" style="width: 100%;">
+                                <input @keyup="timKiem()" v-model="tim_kiem.noi_dung_tim" type="text"
+                                    class="form-control search-control" placeholder="Tìm Kiếm?">
+                                <span class="position-absolute top-50 search-show translate-middle-y"><i
+                                        class='bx bx-search'></i></span>
+                                <span class="position-absolute top-50 search-close translate-middle-y"><i
+                                        class='bx bx-x'></i></span>
+                                <button v-on:click="timKiem()" class="btn btn-primary">Tìm Kiếm</button>
+                            </div>
+                        </div>
+                    </div>
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead>
+                                
                                 <tr class="align-middle text-center text-nowrap">
                                     <th>#</th>
                                     <th>Mã Số Thuế</th>
@@ -292,7 +306,8 @@ export default {
             quan_an_delete: {},
             list_quan: [],
             list_tinh_thanh: [],
-            list_quan_huyen: []
+            list_quan_huyen: [],
+            tim_kiem: {},
         }
     },
     mounted() {
@@ -301,6 +316,20 @@ export default {
         this.loadDataQuanHuyen();
     },
     methods: {
+        timKiem() {
+            axios
+                .post("http://127.0.0.1:8000/api/admin/quan-an/tim-kiem", this.tim_kiem, {
+                    headers: {
+                        Authorization: 'Bearer ' + localStorage.getItem("nhan_vien_login")
+                    }
+                })
+                .then((res) => {
+                    if (res.data.status == false) {
+                        toaster.error(res.data.message)
+                    }
+                    this.list_quan = res.data.data;
+                });
+        },
         loadDataTinhThanh() {
             axios
                 .get('http://127.0.0.1:8000/api/admin/tinh-thanh/data-open', {
@@ -346,7 +375,7 @@ export default {
                     this.$toast.success(res.data.message);
                     this.layDataQuanAn();
                 })
-                 .catch(res => {
+                .catch(res => {
                     const list = Object.values(res.response.data.errors);
                     list.forEach((v, i) => {
                         this.$toast.error(v[0]);
@@ -364,7 +393,7 @@ export default {
                     this.$toast.success(res.data.message);
                     this.layDataQuanAn();
                 })
-                 .catch(res => {
+                .catch(res => {
                     const list = Object.values(res.response.data.errors);
                     list.forEach((v, i) => {
                         this.$toast.error(v[0]);
@@ -382,7 +411,7 @@ export default {
                     this.$toast.success(res.data.message);
                     this.layDataQuanAn();
                 })
-                 .catch(res => {
+                .catch(res => {
                     const list = Object.values(res.response.data.errors);
                     list.forEach((v, i) => {
                         this.$toast.error(v[0]);

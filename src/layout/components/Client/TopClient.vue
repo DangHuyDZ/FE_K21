@@ -13,7 +13,7 @@
 			<div class="mobile-toggle-menu"><i class='bx bx-menu'></i></div>
 			<div class="search-bar flex-grow-1">
 				<div class="position-relative search-bar-box">
-					<input type="text" class="form-control search-control" placeholder="Tìm Kiếm?">
+					<input @keyup="timKiem()"  v-model="noi_dung_tim" type="text" class="form-control search-control" placeholder="Tìm Kiếm?">
 					<span class="position-absolute top-50 search-show translate-middle-y"><i
 							class='bx bx-search'></i></span>
 					<span class="position-absolute top-50 search-close translate-middle-y"><i
@@ -57,10 +57,20 @@ export default {
 	data() {
 		return {
 			ho_ten: localStorage.getItem('ho_ten_khach_hang'),
-			avatar: localStorage.getItem('avatar')
+			avatar: localStorage.getItem('avatar'),
+			noi_dung_tim: '',
+			
 		}
 	},
 	methods: {
+		timKiem() {
+            this.$router.push({
+                name: 'name_tim_kiem',
+                params: {
+                    thong_tin: this.noi_dung_tim,
+                }
+            });
+        },
 		logout() {
 			axios.get('http://127.0.0.1:8000/api/khach-hang/dang-xuat', {
 				headers: {

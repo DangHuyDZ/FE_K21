@@ -36,8 +36,8 @@
                             <td class="align-middle"> {{ mon.ten_danh_muc }} </td>
                             <td class="align-middle">
                                 <button v-on:click="changeMonAn(mon)" v-if="mon.tinh_trang == 1"
-                                    class="btn btn-success">Hiển thị</button>
-                                <button v-on:click="changeMonAn(mon)" v-else class="btn btn-danger">Tạm tắt</button>
+                                    class="btn w-100 btn-success">Hiển thị</button>
+                                <button v-on:click="changeMonAn(mon)" v-else class="btn w-100 btn-danger">Tạm tắt</button>
                             </td>
                             <td class="text-center align-middle">
                                 <button v-on:click="Object.assign(updateMon, mon)" data-bs-toggle="modal"

@@ -143,7 +143,7 @@
                                     <img v-bind:src="item.hinh_anh" width="50">
                                 </td>
                                 <td class="align-middle text-center">
-                                    {{ item.id_danh_muc_cha === null ? "Root" : item.id_danh_muc_cha }}
+                                    {{ item.id_danh_muc_cha ? item.ten_danh_muc_cha : "Root" }}
                                 </td>
                                 <td class="align-middle  ">
                                     <button v-if="item.tinh_trang == 1" v-on:click="changeMonAn(item)"

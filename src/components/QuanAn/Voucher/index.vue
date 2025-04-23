@@ -14,6 +14,14 @@
                             <input v-model="suavoucher.ma_code" type="text" class="form-control mt-2 mb-3">
                         </div>
                         <div class="col-lg-6 col-md-12">
+                            <label>Tên Voucher</label>
+                            <input v-model="suavoucher.ten_voucher" type="text" class="form-control mt-2 mb-3">
+                        </div>
+                        <div class="col-lg-6 col-md-12">
+                            <label>Hình Ảnh</label>
+                            <input v-model="suavoucher.hinh_anh" type="text" class="form-control mt-2 mb-3">
+                        </div>
+                        <div class="col-lg-6 col-md-12">
                             <label>Tình trạng</label>
                             <select v-model="suavoucher.tinh_trang" class="form-select mt-2">
                                 <option value="0">Tạm Tắt</option>
@@ -89,6 +97,14 @@
                             <input v-model="taovoucher.ma_code" type="text" class="form-control mt-2 mb-3">
                         </div>
                         <div class="col-lg-6 col-md-12">
+                            <label>Tên Voucher</label>
+                            <input v-model="taovoucher.ten_voucher" type="text" class="form-control mt-2 mb-3">
+                        </div>
+                        <div class="col-lg-6 col-md-12">
+                            <label>Hình Ảnh</label>
+                            <input v-model="taovoucher.hinh_anh" type="text" class="form-control mt-2 mb-3">
+                        </div>
+                        <div class="col-lg-6 col-md-12">
                             <label>Tình trạng</label>
                             <select v-model="taovoucher.tinh_trang" class="form-select mt-2">
                                 <option value="0">Tạm Tắt</option>
@@ -147,6 +163,8 @@
                                 <tr class="bg-primary text-light">
                                     <th class="align-middle text-center">#</th>
                                     <th class="align-middle text-center">Mã Voucher</th>
+                                    <th class="align-middle text-center">Tên Voucher</th>
+                                    <th class="align-middle text-center">Hình Ảnh</th>
                                     <th class="align-middle text-center">Thời Gian Bắt Đầu</th>
                                     <th class="align-middle text-center">Thời Gian Kết Thúc</th>
                                     <th class="align-middle text-center">Loại Giảm</th>
@@ -162,6 +180,10 @@
                                     <tr>
                                         <th class="align-middle text-center">{{ index + 1 }}</th>
                                         <td class="align-middle text-center">{{ item.ma_code }}</td>
+                                        <td class="align-middle text-center">{{ item.ten_voucher }}</td>
+                                        <td class="align-middle text-center">
+                                            <img :src="item.hinh_anh" style="height: 50px;" alt="">
+                                        </td>
                                         <td class="align-middle text-center">{{ item.thoi_gian_bat_dau }}</td>
                                         <td class="align-middle text-center">{{ item.thoi_gian_ket_thuc }}</td>
                                         <td class="align-middle text-center">{{ item.loai_giam == 1 ? "Phần Trăm"

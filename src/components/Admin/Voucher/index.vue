@@ -13,6 +13,8 @@
                             <tr class="bg-primary text-light">
                                 <th class="text-center">#</th>
                                 <th class="text-center">Mã Code</th>
+                                <th class="text-center">Tên Voucher</th>
+                                <th class="text-center">Hình Ảnh</th>
                                 <th class="text-center">Thời Gian Bắt Đầu</th>
                                 <th class="text-center">Thời Gian Kết Thúc</th>
                                 <th class="text-center">Loại Giảm</th>
@@ -28,6 +30,10 @@
                                 <tr>
                                     <th class="align-middle text-center">{{ index + 1 }}</th>
                                     <td class="align-middle">{{ value.ma_code }}</td>
+                                    <td class="align-middle">{{ value.ten_voucher }}</td>
+                                    <td class="align-middle">
+                                        <img :src="value.hinh_anh" style="height: 50px;" alt="">
+                                    </td>
                                     <td class="align-middle text-center">{{ value.thoi_gian_bat_dau }}</td>
                                     <td class="align-middle text-center">{{ value.thoi_gian_ket_thuc }}</td>
                                     <td class="align-middle">
@@ -81,6 +87,14 @@
                         <div class="mb-2 col-6">
                             <label>Mã Code</label>
                             <input type="text" class="form-control mt-2" v-model="them_ma_giam_gia.ma_code">
+                        </div>
+                        <div class="mb-2 col-6">
+                            <label>Tên Voucher</label>
+                            <input type="text" class="form-control mt-2" v-model="them_ma_giam_gia.ten_voucher">
+                        </div>
+                        <div class="mb-2 col-6">
+                            <label>Hình Ảnh</label>
+                            <input type="text" class="form-control mt-2" v-model="them_ma_giam_gia.hinh_anh">
                         </div>
                         <div class="mb-2 col-6">
                             <label>Thời Gian Bắt Đầu</label>
@@ -139,6 +153,14 @@
                         <div class="mb-2 col-6">
                             <label>Mã Code</label>
                             <input v-model="edit_ma_giam_gia.ma_code" type="text" class="form-control mt-2">
+                        </div>
+                        <div class="mb-2 col-6">
+                            <label>Tên Voucher</label>
+                            <input type="text" class="form-control mt-2" v-model="edit_ma_giam_gia.ten_voucher">
+                        </div>
+                        <div class="mb-2 col-6">
+                            <label>Hình Ảnh</label>
+                            <input type="text" class="form-control mt-2" v-model="edit_ma_giam_gia.hinh_anh">
                         </div>
                         <div class="mb-2 col-6">
                             <label>Thời Gian Bắt Đầu</label>

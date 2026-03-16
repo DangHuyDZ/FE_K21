@@ -137,7 +137,7 @@ Các tính năng chính:
 
 *Quản lý quán ăn - Tìm kiếm, lọc, thêm/sửa/xóa*
 
-![Đăng nhập Admin](/src/assets/images/screencapture-localhost-5173-admin-dang-nhap-2026-03-16-10_03_28.png)
+![Đăng nhập Admin](https://github.com/DangHuyDZ/FE_K21/blob/1db5ab06094cbb0f2329a2c8c1432e8e193c9b20/screencapture-localhost-5173-admin-quan-an-2026-03-16-10_03_50.png)
 
 ---
 
@@ -202,7 +202,7 @@ npm run preview
 
 | Trường            | Giá trị                 |
 | ----------------- | ----------------------- |
-| **Email**         | customer@test.com       |
+| **Email**         | voviet@gmail.com        |
 | **Mật khẩu**      | 123456                  |
 | **URL Đăng nhập** | `/khach-hang/dang-nhap` |
 
@@ -223,7 +223,7 @@ npm run preview
 
 | Trường            | Giá trị              |
 | ----------------- | -------------------- |
-| **Email**         | restaurant@test.com  |
+| **Email**         | bunmamvan@gmail.com  |
 | **Mật khẩu**      | 123456               |
 | **URL Đăng nhập** | `/quan-an/dang-nhap` |
 
@@ -244,7 +244,7 @@ npm run preview
 
 | Trường            | Giá trị              |
 | ----------------- | -------------------- |
-| **Email**         | shipper@test.com     |
+| **Email**         | shippera@gmail.com   |
 | **Mật khẩu**      | 123456               |
 | **URL Đăng nhập** | `/shipper/dang-nhap` |
 
@@ -265,7 +265,7 @@ npm run preview
 
 | Trường            | Giá trị            |
 | ----------------- | ------------------ |
-| **Email**         | admin@test.com     |
+| **Email**         | admin@master.com   |
 | **Mật khẩu**      | 123456             |
 | **URL Đăng nhập** | `/admin/dang-nhap` |
 

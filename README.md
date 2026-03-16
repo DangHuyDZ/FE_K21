@@ -62,7 +62,7 @@ Các tính năng chính:
 
 **Giao diện Khách Hàng:**
 
-![Trang chủ khách hàng](/src/assets/images/screencapture-localhost-5174-2026-03-16-09_35_04.png)
+![Trang chủ khách hàng](https://github.com/DangHuyDZ/FE_K21/blob/aa9e116009ef66f51dec03e8ce623898a5373166/screencapture-localhost-5173-khach-hang-dang-nhap-2026-03-16-09_46_45.png)
 
 *Trang chủ - Danh sách quán ăn được gợi ý*
 

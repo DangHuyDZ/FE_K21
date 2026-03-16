@@ -20,6 +20,7 @@ Dự án **Hệ thống Đặt Đồ Ăn Trực Tuyến** là một nền tảng
 ## 📝 Giới thiệu
 
 Hệ thống được thiết kế với **4 portal riêng biệt** cho từng đối tượng:
+
 - **👥 Khách hàng**: Duyệt danh sách quán ăn, đặt hàng, theo dõi đơn hàng
 - **🏪 Quán ăn**: Quản lý sản phẩm, đơn hàng, voucher, doanh thu
 - **🚚 Shipper**: Quản lý giao hàng, xem vị trí, thống kê
@@ -29,16 +30,16 @@ Hệ thống được thiết kế với **4 portal riêng biệt** cho từng �
 
 ## 🛠️ Công nghệ sử dụng
 
-| Công nghệ | Phiên bản | Mô tả |
-|-----------|----------|-------|
-| **Vue** | 3.3.4 | Frontend framework |
-| **Vite** | 4.4.5 | Build tool & dev server |
-| **Vue Router** | 4.0.13 | Routing & navigation |
-| **Axios** | 1.7.9 | HTTP client |
-| **Chart.js** | 4.4.9 | Data visualization |
-| **Leaflet** | 1.9.4 | Map & location features |
-| **Bootstrap** | 5.x | CSS framework |
-| **ApexCharts** | Latest | Advanced charts |
+| Công nghệ      | Phiên bản | Mô tả                   |
+| -------------- | --------- | ----------------------- |
+| **Vue**        | 3.3.4     | Frontend framework      |
+| **Vite**       | 4.4.5     | Build tool & dev server |
+| **Vue Router** | 4.0.13    | Routing & navigation    |
+| **Axios**      | 1.7.9     | HTTP client             |
+| **Chart.js**   | 4.4.9     | Data visualization      |
+| **Leaflet**    | 1.9.4     | Map & location features |
+| **Bootstrap**  | 5.x       | CSS framework           |
+| **ApexCharts** | Latest    | Advanced charts         |
 
 ---
 
@@ -47,6 +48,7 @@ Hệ thống được thiết kế với **4 portal riêng biệt** cho từng �
 ### 1. 👥 Dành cho Khách hàng (Client Portal)
 
 Các tính năng chính:
+
 - ✅ Duyệt danh sách quán ăn
 - ✅ Tìm kiếm quán ăn & món ăn theo tên
 - ✅ Xem chi tiết sản phẩm (giá, mô tả, hình ảnh)
@@ -60,23 +62,24 @@ Các tính năng chính:
 
 **Giao diện Khách Hàng:**
 
-![Trang chủ khách hàng](https://via.placeholder.com/800x400.png?text=Trang+Ch%E1%BB%A7+Kh%C3%A1ch+H%C3%A0ng+-+Danh+s%C3%A1ch+Qu%C3%A1n+%C4%82n)
+![Trang chủ khách hàng](/src/assets/images/screencapture-localhost-5174-2026-03-16-09_35_04.png)
 
 *Trang chủ - Danh sách quán ăn được gợi ý*
 
-![Chi tiết quán menu](https://via.placeholder.com/800x400.png?text=Chi+Ti%E1%BA%BFt+Qu%C3%A1n+%26+Menu)
+![Chi tiết quán menu](/src/assets/images/screencapture-localhost-5173-khach-hang-quan-an-1-2026-03-16-09_47_03.png)
 
 *Chi tiết menu và giỏ hàng*
 
-![Theo dõi đơn hàng](https://via.placeholder.com/800x400.png?text=Theo+D%C3%B5i+%C4%90%C6%A1n+H%C3%A0ng)
+![Theo dõi đơn hàng](/src/assets/images/screencapture-localhost-5173-khach-hang-don-hang-2026-03-16-09_47_19.png)
 
-*Theo dõi trạng thái đơn hàng realtime*
+_Theo dõi trạng thái đơn hàng realtime_
 
 ---
 
 ### 2. 🏪 Dành cho Quán ăn (Restaurant Portal)
 
 Các tính năng chính:
+
 - ✅ Quản lý danh mục sản phẩm
 - ✅ Quản lý thực đơn (thêm, sửa, xóa món ăn)
 - ✅ Tiếp nhận & xử lý đơn hàng từ khách
@@ -89,23 +92,24 @@ Các tính năng chính:
 
 **Giao diện Quán Ăn:**
 
-![Dashboard quán ăn](https://via.placeholder.com/800x400.png?text=Dashboard+Qu%C3%A1n+%C4%82n)
+![Dashboard quán ăn](/src/assets/images/screencapture-localhost-5173-quan-an-don-hang-2026-03-16-09_50_55.png)
 
 *Dashboard - Đơn hàng mới cần xử lý*
 
-![Quản lý menu](https://via.placeholder.com/800x400.png?text=Qu%E1%BA%A3n+l%C3%BD+Menu+v%C3%A0+S%E1%BA%A3n+Ph%E1%BA%A9m)
+![Quản lý menu](/src/assets/images/screencapture-localhost-5173-quan-an-mon-an-2026-03-16-09_51_09.png)
 
 *Quản lý thực đơn - Thêm/sửa/xóa món ăn*
 
-![Thống kê doanh thu](https://via.placeholder.com/800x400.png?text=Th%E1%BB%91ng+K%C3%AA+Doanh+Thu)
+![Thống kê doanh thu](/src/assets/images/screencapture-localhost-5173-quan-an-thong-ke-doanh-thu-2026-03-16-10_01_42.png)
 
-*Thống kê doanh thu và phân tích bán hàng*
+_Thống kê doanh thu và phân tích bán hàng_
 
 ---
 
 ### 3. 🚚 Dành cho Shipper (Giao hàng)
 
 Các tính năng chính:
+
 - ✅ Xem danh sách đơn hàng chờ giao
 - ✅ Nhận & từ chối đơn hàng
 - ✅ Cập nhật vị trí giao hàng (GPS)
@@ -118,23 +122,24 @@ Các tính năng chính:
 
 **Giao diện Shipper:**
 
-![Dashboard shipper](https://via.placeholder.com/800x400.png?text=Dashboard+Shipper+-+%C4%90%C6%A1n+H%C3%A0ng+Ch%E1%BB%9D+Giao)
+![Dashboard shipper](/src/assets/images/screencapture-localhost-5173-shipper-don-hang-2026-03-16-10_02_48.png)
 
 *Dashboard - Danh sách đơn hàng chờ giao*
 
-![Bản đồ GPS](https://via.placeholder.com/800x400.png?text=B%E1%BA%A3n+%C4%90%E1%BB%93+GPS+-+Xem+V%E1%BB%8B+Tr%C3%AD)
+![Bản đồ GPS](/src/assets/images/screencapture-localhost-5173-shipper-vi-tri-hien-tai-2026-03-16-10_03_12.png)
 
 *Bản đồ định vị - Xem vị trí khách, quán, trạm giao*
 
-![Ví tiền & thống kê](https://via.placeholder.com/800x400.png?text=V%C3%AD+Ti%E1%BB%81n+%26+Th%E1%BB%91ng+K%C3%AA+Thu+Nh%E1%BA%ADp)
+![Đăng nhập Shipper](/src/assets/images/screencapture-localhost-5173-shipper-dang-nhap-2026-03-16-10_02_18.png)
 
-*Quản lý ví tiền và thống kê thu nhập*
+*Giao diện đăng nhập Shipper*
 
 ---
 
 ### 4. 👨‍💼 Dành cho Admin (Quản trị viên)
 
 Các tính năng chính:
+
 - ✅ Quản lý khách hàng (xem, sửa, xóa)
 - ✅ Quản lý quán ăn
 - ✅ Quản lý shipper
@@ -148,17 +153,17 @@ Các tính năng chính:
 
 **Giao diện Admin:**
 
-![Dashboard admin](https://via.placeholder.com/800x400.png?text=Dashboard+Admin+-+Qu%E1%BA%A3n+L%C3%BD+H%E1%BB%87+Th%E1%BB%91ng)
+![Dashboard admin](/src/assets/images/screencapture-localhost-5173-admin-khach-hang-2026-03-16-10_04_05.png)
 
-*Dashboard Admin - Quản lý hệ thống*
+*Dashboard Admin - Quản lý khách hàng*
 
-![Quản lý người dùng](https://via.placeholder.com/800x400.png?text=Qu%E1%BA%A3n+L%C3%BD+Kh%C3%A1ch+H%C3%A0ng)
+![Quản lý quán ăn](/src/assets/images/screencapture-localhost-5173-admin-quan-an-2026-03-16-10_03_50.png)
 
-*Quản lý khách hàng - Tìm kiếm, lọc, thêm/sửa/xóa*
+*Quản lý quán ăn - Tìm kiếm, lọc, thêm/sửa/xóa*
 
-![Thống kê hệ thống](https://via.placeholder.com/800x400.png?text=Th%E1%BB%91ng+K%C3%AA+T%E1%BB%95ng+H%E1%BB%A3p)
+![Đăng nhập Admin](/src/assets/images/screencapture-localhost-5173-admin-dang-nhap-2026-03-16-10_03_28.png)
 
-*Thống kê và báo cáo tổng quát hệ thống*
+*Giao diện đăng nhập Admin*
 
 ---
 
@@ -221,15 +226,16 @@ npm run preview
 
 ### 1. 👤 Tài khoản Khách hàng (Customer)
 
-| Trường | Giá trị |
-|-------|--------|
-| **Email** | customer@test.com |
-| **Mật khẩu** | 123456 |
+| Trường            | Giá trị                 |
+| ----------------- | ----------------------- |
+| **Email**         | customer@test.com       |
+| **Mật khẩu**      | 123456                  |
 | **URL Đăng nhập** | `/khach-hang/dang-nhap` |
 
 **Test link:** [http://localhost:5173/khach-hang/dang-nhap](http://localhost:5173/khach-hang/dang-nhap)
 
 **Hành động test:**
+
 - Đăng nhập bằng tài khoản trên
 - Duyệt danh sách quán ăn
 - Chọn quán ăn, xem menu
@@ -241,15 +247,16 @@ npm run preview
 
 ### 2. 🏪 Tài khoản Quán ăn (Restaurant)
 
-| Trường | Giá trị |
-|-------|--------|
-| **Email** | restaurant@test.com |
-| **Mật khẩu** | 123456 |
+| Trường            | Giá trị              |
+| ----------------- | -------------------- |
+| **Email**         | restaurant@test.com  |
+| **Mật khẩu**      | 123456               |
 | **URL Đăng nhập** | `/quan-an/dang-nhap` |
 
 **Test link:** [http://localhost:5173/quan-an/dang-nhap](http://localhost:5173/quan-an/dang-nhap)
 
 **Hành động test:**
+
 - Đăng nhập bằng tài khoản quán ăn
 - Xem danh sách đơn hàng mới
 - Chấp nhận/từ chối đơn hàng
@@ -261,15 +268,16 @@ npm run preview
 
 ### 3. 🚚 Tài khoản Shipper (Giao hàng)
 
-| Trường | Giá trị |
-|-------|--------|
-| **Email** | shipper@test.com |
-| **Mật khẩu** | 123456 |
+| Trường            | Giá trị              |
+| ----------------- | -------------------- |
+| **Email**         | shipper@test.com     |
+| **Mật khẩu**      | 123456               |
 | **URL Đăng nhập** | `/shipper/dang-nhap` |
 
 **Test link:** [http://localhost:5173/shipper/dang-nhap](http://localhost:5173/shipper/dang-nhap)
 
 **Hành động test:**
+
 - Đăng nhập bằng tài khoản shipper
 - Xem danh sách đơn hàng chờ giao
 - Nhận đơn hàng
@@ -281,15 +289,16 @@ npm run preview
 
 ### 4. 👨‍💼 Tài khoản Admin (Quản trị viên)
 
-| Trường | Giá trị |
-|-------|--------|
-| **Email** | admin@test.com |
-| **Mật khẩu** | 123456 |
+| Trường            | Giá trị            |
+| ----------------- | ------------------ |
+| **Email**         | admin@test.com     |
+| **Mật khẩu**      | 123456             |
 | **URL Đăng nhập** | `/admin/dang-nhap` |
 
 **Test link:** [http://localhost:5173/admin/dang-nhap](http://localhost:5173/admin/dang-nhap)
 
 **Hành động test:**
+
 - Đăng nhập bằng tài khoản admin
 - Quản lý danh sách khách hàng
 - Quản lý danh sách quán ăn
@@ -417,60 +426,60 @@ FE_KHOA_21/
 
 ### 👥 Khách hàng (Customer)
 
-| Trang | URL | Mô tả |
-|-------|-----|-------|
-| Trang chủ | `/` | Danh sách quán ăn |
-| Đăng nhập | `/khach-hang/dang-nhap` | Đăng nhập tài khoản |
-| Đăng ký | `/khach-hang/dang-ky` | Tạo tài khoản mới |
-| Chi tiết quán & menu | `/khach-hang/quan-an/:id_quan` | Xem menu & đặt hàng |
-| Đơn hàng | `/khach-hang/don-hang` | Lịch sử & theo dõi đơn |
-| Tìm kiếm | `/tim-kiem/:thong_tin` | Tìm kiếm quán/món |
-| Danh sách quán yêu thích | `/khach-hang/list-quan-an` | Danh sách quán đã follow |
-| Hồ sơ | `/khach-hang/profile` | Thông tin cá nhân |
+| Trang                    | URL                            | Mô tả                    |
+| ------------------------ | ------------------------------ | ------------------------ |
+| Trang chủ                | `/`                            | Danh sách quán ăn        |
+| Đăng nhập                | `/khach-hang/dang-nhap`        | Đăng nhập tài khoản      |
+| Đăng ký                  | `/khach-hang/dang-ky`          | Tạo tài khoản mới        |
+| Chi tiết quán & menu     | `/khach-hang/quan-an/:id_quan` | Xem menu & đặt hàng      |
+| Đơn hàng                 | `/khach-hang/don-hang`         | Lịch sử & theo dõi đơn   |
+| Tìm kiếm                 | `/tim-kiem/:thong_tin`         | Tìm kiếm quán/món        |
+| Danh sách quán yêu thích | `/khach-hang/list-quan-an`     | Danh sách quán đã follow |
+| Hồ sơ                    | `/khach-hang/profile`          | Thông tin cá nhân        |
 
 ### 🏪 Quán ăn (Restaurant)
 
-| Trang | URL | Mô tả |
-|-------|-----|-------|
-| Đăng nhập | `/quan-an/dang-nhap` | Đăng nhập quán ăn |
-| Đăng ký | `/quan-an/dang-ky` | Đăng ký quán mới |
-| Dashboard | `/quan-an/don-hang` | Đơn hàng mới |
-| Danh mục | `/quan-an/danh-muc` | Quản lý danh mục |
-| Sản phẩm | `/quan-an/mon-an` | Quản lý thực đơn |
-| Voucher | `/quan-an/voucher` | Quản lý giảm giá |
-| Thống kê sản phẩm | `/quan-an/thong-ke-mon-an` | Báo cáo bán hàng |
+| Trang              | URL                           | Mô tả             |
+| ------------------ | ----------------------------- | ----------------- |
+| Đăng nhập          | `/quan-an/dang-nhap`          | Đăng nhập quán ăn |
+| Đăng ký            | `/quan-an/dang-ky`            | Đăng ký quán mới  |
+| Dashboard          | `/quan-an/don-hang`           | Đơn hàng mới      |
+| Danh mục           | `/quan-an/danh-muc`           | Quản lý danh mục  |
+| Sản phẩm           | `/quan-an/mon-an`             | Quản lý thực đơn  |
+| Voucher            | `/quan-an/voucher`            | Quản lý giảm giá  |
+| Thống kê sản phẩm  | `/quan-an/thong-ke-mon-an`    | Báo cáo bán hàng  |
 | Thống kê doanh thu | `/quan-an/thong-ke-doanh-thu` | Báo cáo tài chính |
-| Cấu hình | `/quan-an/cau-hinh` | Cài đặt quán ăn |
-| Hồ sơ | `/quan-an/profile` | Thông tin quán ăn |
+| Cấu hình           | `/quan-an/cau-hinh`           | Cài đặt quán ăn   |
+| Hồ sơ              | `/quan-an/profile`            | Thông tin quán ăn |
 
 ### 🚚 Shipper (Giao hàng)
 
-| Trang | URL | Mô tả |
-|-------|-----|-------|
-| Đăng nhập | `/shipper/dang-nhap` | Đăng nhập shipper |
-| Đăng ký | `/shipper/dang-ky` | Đăng ký tài khoản shipper |
-| Đơn hàng | `/shipper/don-hang` | Danh sách giao hàng |
-| Vị trí hiện tại | `/shipper/vi-tri-hien-tai` | Cập nhật GPS |
-| Ví tiền | `/shipper/vi-tien` | Quản lý ví tiền |
-| Thống kê | `/shipper/thong-ke` | Báo cáo thu nhập |
-| Hồ sơ | `/shipper/profile` | Thông tin cá nhân |
+| Trang           | URL                        | Mô tả                     |
+| --------------- | -------------------------- | ------------------------- |
+| Đăng nhập       | `/shipper/dang-nhap`       | Đăng nhập shipper         |
+| Đăng ký         | `/shipper/dang-ky`         | Đăng ký tài khoản shipper |
+| Đơn hàng        | `/shipper/don-hang`        | Danh sách giao hàng       |
+| Vị trí hiện tại | `/shipper/vi-tri-hien-tai` | Cập nhật GPS              |
+| Ví tiền         | `/shipper/vi-tien`         | Quản lý ví tiền           |
+| Thống kê        | `/shipper/thong-ke`        | Báo cáo thu nhập          |
+| Hồ sơ           | `/shipper/profile`         | Thông tin cá nhân         |
 
 ### 👨‍💼 Admin (Quản trị)
 
-| Trang | URL | Mô tả |
-|-------|-----|-------|
-| Đăng nhập | `/admin/dang-nhap` | Đăng nhập admin |
-| Khách hàng | `/admin/khach-hang` | Quản lý tài khoản khách |
-| Quán ăn | `/admin/quan-an` | Quản lý quán ăn |
-| Danh mục | `/admin/danh-muc` | Quản lý danh mục |
-| Đơn hàng | `/admin/danh-sach-don-dat` | Quản lý tất cả đơn |
-| Shipper | `/admin/shipper` | Quản lý shipper |
-| Voucher | `/admin/voucher` | Quản lý voucher hệ thống |
-| Nhân viên | `/admin/nhan-vien` | Quản lý staff |
-| Phân quyền | `/admin/phan-quyen` | Cài đặt quyền hạn |
-| Thống kê khách | `/admin/thong-ke-khach-hang` | Báo cáo khách hàng |
-| Thống kê quán | `/admin/thong-ke-quan-an` | Báo cáo quán ăn |
-| Hồ sơ | `/admin/profile` | Thông tin admin |
+| Trang          | URL                          | Mô tả                    |
+| -------------- | ---------------------------- | ------------------------ |
+| Đăng nhập      | `/admin/dang-nhap`           | Đăng nhập admin          |
+| Khách hàng     | `/admin/khach-hang`          | Quản lý tài khoản khách  |
+| Quán ăn        | `/admin/quan-an`             | Quản lý quán ăn          |
+| Danh mục       | `/admin/danh-muc`            | Quản lý danh mục         |
+| Đơn hàng       | `/admin/danh-sach-don-dat`   | Quản lý tất cả đơn       |
+| Shipper        | `/admin/shipper`             | Quản lý shipper          |
+| Voucher        | `/admin/voucher`             | Quản lý voucher hệ thống |
+| Nhân viên      | `/admin/nhan-vien`           | Quản lý staff            |
+| Phân quyền     | `/admin/phan-quyen`          | Cài đặt quyền hạn        |
+| Thống kê khách | `/admin/thong-ke-khach-hang` | Báo cáo khách hàng       |
+| Thống kê quán  | `/admin/thong-ke-quan-an`    | Báo cáo quán ăn          |
+| Hồ sơ          | `/admin/profile`             | Thông tin admin          |
 
 ---
 
@@ -489,22 +498,26 @@ http://localhost:5173/
 ### Login nhanh
 
 **Khách hàng:**
-- 📧 Email: `customer@test.com`
+
+- 📧 Email: `voviet@gmail.com`
 - 🔑 Pass: `123456`
 - Link: http://localhost:5173/khach-hang/dang-nhap
 
 **Quán ăn:**
-- 📧 Email: `restaurant@test.com`
+
+- 📧 Email: `bunmamvan@gmail.com`
 - 🔑 Pass: `123456`
 - Link: http://localhost:5173/quan-an/dang-nhap
 
 **Shipper:**
-- 📧 Email: `shipper@test.com`
+
+- 📧 Email: `shippera@gmail.com`
 - 🔑 Pass: `123456`
 - Link: http://localhost:5173/shipper/dang-nhap
 
 **Admin:**
-- 📧 Email: `admin@test.com`
+
+- 📧 Email: `admin@master.com`
 - 🔑 Pass: `123456`
 - Link: http://localhost:5173/admin/dang-nhap
 
@@ -618,8 +631,8 @@ README hiện tại sử dụng **placeholder images** từ dịch vụ `placeho
 2. Thay đổi link trong README:
 
 ```markdown
-![Mô tả](https://via.placeholder.com/800x400.png?text=Text)  # Cũ
-![Mô tả](/images/customer-homepage.png)                      # Mới
+![Mô tả](https://via.placeholder.com/800x400.png?text=Text) # Cũ
+![Mô tả](/images/customer-homepage.png) # Mới
 ```
 
 ### Cách 2: Sử dụng link trực tuyến
@@ -637,21 +650,25 @@ README hiện tại sử dụng **placeholder images** từ dịch vụ `placeho
 ### Danh sách ảnh cần chụp:
 
 **Khách hàng:**
+
 - `screenshots/01-customer-homepage.png` - Trang chủ
 - `screenshots/02-customer-menu.png` - Chi tiết menu
 - `screenshots/03-customer-tracking.png` - Theo dõi đơn
 
 **Quán ăn:**
+
 - `screenshots/04-restaurant-dashboard.png` - Dashboard
 - `screenshots/05-restaurant-menu-manager.png` - Quản lý menu
 - `screenshots/06-restaurant-stats.png` - Thống kê
 
 **Shipper:**
+
 - `screenshots/07-shipper-dashboard.png` - Dashboard
 - `screenshots/08-shipper-map.png` - Bản đồ GPS
 - `screenshots/09-shipper-wallet.png` - Ví tiền
 
 **Admin:**
+
 - `screenshots/10-admin-dashboard.png` - Dashboard
 - `screenshots/11-admin-users.png` - Quản lý người dùng
 - `screenshots/12-admin-stats.png` - Thống kê

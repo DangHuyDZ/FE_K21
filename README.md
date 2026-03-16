@@ -72,10 +72,6 @@ Các tính năng chính:
 
 ![Theo dõi đơn hàng](https://github.com/DangHuyDZ/FE_K21/blob/600ba2d70b11002cf55a5dd8b2be602888d86ddb/screencapture-localhost-5173-khach-hang-don-hang-2026-03-16-09_47_19.png)
 
-_Theo dõi trạng thái đơn hàng realtime_
-
----
-
 ### 2. 🏪 Dành cho Quán ăn (Restaurant Portal)
 
 Các tính năng chính:
@@ -92,19 +88,7 @@ Các tính năng chính:
 
 **Giao diện Quán Ăn:**
 
-![Dashboard quán ăn](/src/assets/images/screencapture-localhost-5173-quan-an-don-hang-2026-03-16-09_50_55.png)
-
-*Dashboard - Đơn hàng mới cần xử lý*
-
-![Quản lý menu](https://github.com/DangHuyDZ/FE_K21/blob/a45892ce5cfe4917828a57fdeded704842e60be1/screencapture-localhost-5174-khach-hang-list-quan-an-2026-03-16-10_27_22.png)
-
-*Quản lý thực đơn - Thêm/sửa/xóa món ăn*
-
-![Thống kê doanh thu](/src/assets/images/screencapture-localhost-5173-quan-an-thong-ke-doanh-thu-2026-03-16-10_01_42.png)
-
-_Thống kê doanh thu và phân tích bán hàng_
-
----
+(https://github.com/DangHuyDZ/FE_K21/blob/dec90db38586f3a89a7db98b60c394115e1c7cce/screencapture-localhost-5173-quan-an-mon-an-2026-03-16-09_51_09.png)
 
 ### 3. 🚚 Dành cho Shipper (Giao hàng)
 
@@ -127,14 +111,6 @@ Các tính năng chính:
 *Dashboard - Danh sách đơn hàng chờ giao*
 
 ![Bản đồ GPS](/src/assets/images/screencapture-localhost-5173-shipper-vi-tri-hien-tai-2026-03-16-10_03_12.png)
-
-*Bản đồ định vị - Xem vị trí khách, quán, trạm giao*
-
-![Đăng nhập Shipper](/src/assets/images/screencapture-localhost-5173-shipper-dang-nhap-2026-03-16-10_02_18.png)
-
-*Giao diện đăng nhập Shipper*
-
----
 
 ### 4. 👨‍💼 Dành cho Admin (Quản trị viên)
 

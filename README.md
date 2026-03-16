@@ -66,7 +66,7 @@ Các tính năng chính:
 
 *Trang chủ - Danh sách quán ăn được gợi ý*
 
-![Chi tiết quán menu](/src/assets/images/screencapture-localhost-5173-khach-hang-quan-an-1-2026-03-16-09_47_03.png)
+![Chi tiết quán menu](https://github.com/DangHuyDZ/FE_K21/blob/a45892ce5cfe4917828a57fdeded704842e60be1/screencapture-localhost-5174-khach-hang-list-quan-an-2026-03-16-10_27_22.png)
 
 *Chi tiết menu và giỏ hàng*
 

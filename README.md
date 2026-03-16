@@ -70,7 +70,7 @@ Các tính năng chính:
 
 *Chi tiết menu và giỏ hàng*
 
-![Theo dõi đơn hàng](/src/assets/images/screencapture-localhost-5173-khach-hang-don-hang-2026-03-16-09_47_19.png)
+![Theo dõi đơn hàng](https://github.com/DangHuyDZ/FE_K21/blob/600ba2d70b11002cf55a5dd8b2be602888d86ddb/screencapture-localhost-5173-khach-hang-don-hang-2026-03-16-09_47_19.png)
 
 _Theo dõi trạng thái đơn hàng realtime_
 

@@ -129,7 +129,7 @@ Các tính năng chính:
 
 *Giao diện đăng nhập Admin*
 
-![]()
+![](https://github.com/DangHuyDZ/FE_K21/blob/684d2667c60486780a9b93ff7daf104d27c2f62d/screencapture-localhost-5173-admin-dang-nhap-2026-03-16-10_03_28.png)
 
 *Dashboard Admin - Quản lý khách hàng*
 

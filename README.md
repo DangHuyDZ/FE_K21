@@ -58,6 +58,20 @@ Các tính năng chính:
 
 **URL:** http://localhost:5173/
 
+**Giao diện Khách Hàng:**
+
+![Trang chủ khách hàng](https://via.placeholder.com/800x400.png?text=Trang+Ch%E1%BB%A7+Kh%C3%A1ch+H%C3%A0ng+-+Danh+s%C3%A1ch+Qu%C3%A1n+%C4%82n)
+
+*Trang chủ - Danh sách quán ăn được gợi ý*
+
+![Chi tiết quán menu](https://via.placeholder.com/800x400.png?text=Chi+Ti%E1%BA%BFt+Qu%C3%A1n+%26+Menu)
+
+*Chi tiết menu và giỏ hàng*
+
+![Theo dõi đơn hàng](https://via.placeholder.com/800x400.png?text=Theo+D%C3%B5i+%C4%90%C6%A1n+H%C3%A0ng)
+
+*Theo dõi trạng thái đơn hàng realtime*
+
 ---
 
 ### 2. 🏪 Dành cho Quán ăn (Restaurant Portal)
@@ -72,6 +86,20 @@ Các tính năng chính:
 - ✅ Quản lý thông tin quán ăn
 
 **URL:** http://localhost:5173/quan-an/don-hang
+
+**Giao diện Quán Ăn:**
+
+![Dashboard quán ăn](https://via.placeholder.com/800x400.png?text=Dashboard+Qu%C3%A1n+%C4%82n)
+
+*Dashboard - Đơn hàng mới cần xử lý*
+
+![Quản lý menu](https://via.placeholder.com/800x400.png?text=Qu%E1%BA%A3n+l%C3%BD+Menu+v%C3%A0+S%E1%BA%A3n+Ph%E1%BA%A9m)
+
+*Quản lý thực đơn - Thêm/sửa/xóa món ăn*
+
+![Thống kê doanh thu](https://via.placeholder.com/800x400.png?text=Th%E1%BB%91ng+K%C3%AA+Doanh+Thu)
+
+*Thống kê doanh thu và phân tích bán hàng*
 
 ---
 
@@ -88,6 +116,20 @@ Các tính năng chính:
 
 **URL:** http://localhost:5173/shipper/don-hang
 
+**Giao diện Shipper:**
+
+![Dashboard shipper](https://via.placeholder.com/800x400.png?text=Dashboard+Shipper+-+%C4%90%C6%A1n+H%C3%A0ng+Ch%E1%BB%9D+Giao)
+
+*Dashboard - Danh sách đơn hàng chờ giao*
+
+![Bản đồ GPS](https://via.placeholder.com/800x400.png?text=B%E1%BA%A3n+%C4%90%E1%BB%93+GPS+-+Xem+V%E1%BB%8B+Tr%C3%AD)
+
+*Bản đồ định vị - Xem vị trí khách, quán, trạm giao*
+
+![Ví tiền & thống kê](https://via.placeholder.com/800x400.png?text=V%C3%AD+Ti%E1%BB%81n+%26+Th%E1%BB%91ng+K%C3%AA+Thu+Nh%E1%BA%ADp)
+
+*Quản lý ví tiền và thống kê thu nhập*
+
 ---
 
 ### 4. 👨‍💼 Dành cho Admin (Quản trị viên)
@@ -103,6 +145,20 @@ Các tính năng chính:
 - ✅ Thống kê tổng quát (khách hàng, quán ăn)
 
 **URL:** http://localhost:5173/admin/khach-hang
+
+**Giao diện Admin:**
+
+![Dashboard admin](https://via.placeholder.com/800x400.png?text=Dashboard+Admin+-+Qu%E1%BA%A3n+L%C3%BD+H%E1%BB%87+Th%E1%BB%91ng)
+
+*Dashboard Admin - Quản lý hệ thống*
+
+![Quản lý người dùng](https://via.placeholder.com/800x400.png?text=Qu%E1%BA%A3n+L%C3%BD+Kh%C3%A1ch+H%C3%A0ng)
+
+*Quản lý khách hàng - Tìm kiếm, lọc, thêm/sửa/xóa*
+
+![Thống kê hệ thống](https://via.placeholder.com/800x400.png?text=Th%E1%BB%91ng+K%C3%AA+T%E1%BB%95ng+H%E1%BB%A3p)
+
+*Thống kê và báo cáo tổng quát hệ thống*
 
 ---
 
@@ -552,7 +608,55 @@ npm run dev -- --port 3001
 
 ---
 
-## 📧 Liên hệ & Hỗ trợ
+## 📸 Hướng dẫn thêm hình ảnh thực tế
+
+README hiện tại sử dụng **placeholder images** từ dịch vụ `placeholder.com`. Để thêm hình ảnh thực tế:
+
+### Cách 1: Sử dụng hình ảnh từ folder `public/` hoặc `src/assets/`
+
+1. Lưu hình ảnh vào: `public/images/` hoặc `src/assets/images/`
+2. Thay đổi link trong README:
+
+```markdown
+![Mô tả](https://via.placeholder.com/800x400.png?text=Text)  # Cũ
+![Mô tả](/images/customer-homepage.png)                      # Mới
+```
+
+### Cách 2: Sử dụng link trực tuyến
+
+1. Upload ảnh lên Imgur, GitHub, hoặc GitHub issues
+2. Copy URL ảnh
+3. Update link trong README
+
+### Cách 3: Thêm screenshots folder
+
+1. Tạo folder `screenshots/` ở thư mục gốc
+2. Lưu các ảnh chụp màn hình
+3. Update link: `./screenshots/customer-homepage.png`
+
+### Danh sách ảnh cần chụp:
+
+**Khách hàng:**
+- `screenshots/01-customer-homepage.png` - Trang chủ
+- `screenshots/02-customer-menu.png` - Chi tiết menu
+- `screenshots/03-customer-tracking.png` - Theo dõi đơn
+
+**Quán ăn:**
+- `screenshots/04-restaurant-dashboard.png` - Dashboard
+- `screenshots/05-restaurant-menu-manager.png` - Quản lý menu
+- `screenshots/06-restaurant-stats.png` - Thống kê
+
+**Shipper:**
+- `screenshots/07-shipper-dashboard.png` - Dashboard
+- `screenshots/08-shipper-map.png` - Bản đồ GPS
+- `screenshots/09-shipper-wallet.png` - Ví tiền
+
+**Admin:**
+- `screenshots/10-admin-dashboard.png` - Dashboard
+- `screenshots/11-admin-users.png` - Quản lý người dùng
+- `screenshots/12-admin-stats.png` - Thống kê
+
+---
 
 - **Tác giả**: Khóa 21
 - **GitHub**: https://github.com/DangHuyDZ/FE_K21

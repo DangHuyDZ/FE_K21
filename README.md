@@ -127,17 +127,17 @@ Các tính năng chính:
 
 **Giao diện Admin:**
 
-![Dashboard admin](/src/assets/images/screencapture-localhost-5173-admin-khach-hang-2026-03-16-10_04_05.png)
+*Giao diện đăng nhập Admin*
+
+![]()
 
 *Dashboard Admin - Quản lý khách hàng*
 
-![Quản lý quán ăn](/src/assets/images/screencapture-localhost-5173-admin-quan-an-2026-03-16-10_03_50.png)
+![Quản lý khách hàng](https://github.com/DangHuyDZ/FE_K21/blob/adf93b7adb6dcc84bc868ead42ac8fbb941384b1/screencapture-localhost-5173-admin-khach-hang-2026-03-16-10_04_05.png)
 
 *Quản lý quán ăn - Tìm kiếm, lọc, thêm/sửa/xóa*
 
 ![Đăng nhập Admin](/src/assets/images/screencapture-localhost-5173-admin-dang-nhap-2026-03-16-10_03_28.png)
-
-*Giao diện đăng nhập Admin*
 
 ---
 

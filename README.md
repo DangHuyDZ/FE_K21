@@ -96,7 +96,7 @@ Các tính năng chính:
 
 *Dashboard - Đơn hàng mới cần xử lý*
 
-![Quản lý menu](/src/assets/images/screencapture-localhost-5173-quan-an-mon-an-2026-03-16-09_51_09.png)
+![Quản lý menu](https://github.com/DangHuyDZ/FE_K21/blob/a45892ce5cfe4917828a57fdeded704842e60be1/screencapture-localhost-5174-khach-hang-list-quan-an-2026-03-16-10_27_22.png)
 
 *Quản lý thực đơn - Thêm/sửa/xóa món ăn*
 

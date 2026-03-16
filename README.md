@@ -88,7 +88,7 @@ Các tính năng chính:
 
 **Giao diện Quán Ăn:**
 
-(https://github.com/DangHuyDZ/FE_K21/blob/dec90db38586f3a89a7db98b60c394115e1c7cce/screencapture-localhost-5173-quan-an-mon-an-2026-03-16-09_51_09.png)
+![Quán Ăn](https://github.com/DangHuyDZ/FE_K21/blob/dec90db38586f3a89a7db98b60c394115e1c7cce/screencapture-localhost-5173-quan-an-mon-an-2026-03-16-09_51_09.png)
 
 ### 3. 🚚 Dành cho Shipper (Giao hàng)
 
@@ -106,11 +106,9 @@ Các tính năng chính:
 
 **Giao diện Shipper:**
 
-![Dashboard shipper](/src/assets/images/screencapture-localhost-5173-shipper-don-hang-2026-03-16-10_02_48.png)
-
 *Dashboard - Danh sách đơn hàng chờ giao*
 
-![Bản đồ GPS](/src/assets/images/screencapture-localhost-5173-shipper-vi-tri-hien-tai-2026-03-16-10_03_12.png)
+![](https://github.com/DangHuyDZ/FE_K21/blob/2375ae7639e62f25cf7b9b4fde231300448a22c3/screencapture-localhost-5173-shipper-don-hang-2026-03-16-10_02_48.png)
 
 ### 4. 👨‍💼 Dành cho Admin (Quản trị viên)
 

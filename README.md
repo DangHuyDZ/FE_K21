@@ -593,69 +593,6 @@ npm run dev -- --port 3001
 # Safari: Shift + Cmd + Delete
 ```
 
----
-
-## 📸 Hướng dẫn thêm hình ảnh thực tế
-
-README hiện tại sử dụng **placeholder images** từ dịch vụ `placeholder.com`. Để thêm hình ảnh thực tế:
-
-### Cách 1: Sử dụng hình ảnh từ folder `public/` hoặc `src/assets/`
-
-1. Lưu hình ảnh vào: `public/images/` hoặc `src/assets/images/`
-2. Thay đổi link trong README:
-
-```markdown
-![Mô tả](https://via.placeholder.com/800x400.png?text=Text) # Cũ
-![Mô tả](/images/customer-homepage.png) # Mới
-```
-
-### Cách 2: Sử dụng link trực tuyến
-
-1. Upload ảnh lên Imgur, GitHub, hoặc GitHub issues
-2. Copy URL ảnh
-3. Update link trong README
-
-### Cách 3: Thêm screenshots folder
-
-1. Tạo folder `screenshots/` ở thư mục gốc
-2. Lưu các ảnh chụp màn hình
-3. Update link: `./screenshots/customer-homepage.png`
-
-### Danh sách ảnh cần chụp:
-
-**Khách hàng:**
-
-- `screenshots/01-customer-homepage.png` - Trang chủ
-- `screenshots/02-customer-menu.png` - Chi tiết menu
-- `screenshots/03-customer-tracking.png` - Theo dõi đơn
-
-**Quán ăn:**
-
-- `screenshots/04-restaurant-dashboard.png` - Dashboard
-- `screenshots/05-restaurant-menu-manager.png` - Quản lý menu
-- `screenshots/06-restaurant-stats.png` - Thống kê
-
-**Shipper:**
-
-- `screenshots/07-shipper-dashboard.png` - Dashboard
-- `screenshots/08-shipper-map.png` - Bản đồ GPS
-- `screenshots/09-shipper-wallet.png` - Ví tiền
-
-**Admin:**
-
-- `screenshots/10-admin-dashboard.png` - Dashboard
-- `screenshots/11-admin-users.png` - Quản lý người dùng
-- `screenshots/12-admin-stats.png` - Thống kê
-
----
-
-- **Tác giả**: Khóa 21
-- **GitHub**: https://github.com/DangHuyDZ/FE_K21
-- **Email**: support@fooddelivery.com
-- **Issues**: [GitHub Issues](https://github.com/DangHuyDZ/FE_K21/issues)
-
----
-
 ## 📄 Giấy phép
 
 Project này được cấp phép dưới **MIT License** - xem file LICENSE để chi tiết
